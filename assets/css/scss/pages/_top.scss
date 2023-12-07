@@ -1,0 +1,416 @@
+@use '../config/variables' as v;
+@use '../mixin' as *;
+
+.mainvisual-bg {
+  background-image: url(../img/bg-black.png);
+  background-color: #000;
+}
+.mainvisual {
+  padding: 90px 140px 70px;
+  color: v.$white;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  .mainvisual-catchcopy {
+    font-size: 62px;
+    font-weight: 700;
+    color: v.$sub-font-color;
+  }
+  h1 {
+    font-size: 128px;
+    color: v.$white;
+    font-weight: 900;
+    margin-bottom: 90px;
+  }
+  .flexbox {
+    display: flex;
+    justify-content: space-between;
+    .our-mission {
+      font-family: v.$sub-font;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .mainvisual-content {
+      font-weight: 700;
+      width: 850px;
+      h3 {
+        font-size: 38px;
+        margin-bottom: 24px;
+      }
+      p {
+        font-size: 20px;
+        margin-bottom: 48px;
+      }
+      .mainvisual-contact a {
+        width: 100%;
+        height: 80px;
+        display: grid;
+        place-items: center;
+        background-color: v.$base-btn-color;
+        color: v.$base-link-color;
+        font-family: v.$sub-font;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.about {
+  padding-left: (calc((100% - 1360px) / 2));
+  padding-block: 150px 200px;
+  .about-icon {
+    margin-bottom: 125px;
+    display: flex;
+    justify-content: center;
+  }
+  h2 {
+    margin-bottom: 36px;
+  }
+  .flexbox {
+    border-top: 1px solid v.$black;
+    padding-top: 100px;
+    display: flex;
+    .about-content {
+      flex: 50%;
+      padding: 0 100px 0 0;
+      h3 {
+        color: v.$white;
+        background-color: v.$black;
+        margin-bottom: 48px;
+        width: fit-content;
+        padding: 8px 24px;
+        font-size: 32px;
+        font-weight: 900;
+        span {
+          color: v.$sub-font-color;
+        }
+      }
+      > p {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 175%;
+        margin-bottom: 64px;
+      }
+      .about-contact a {
+        width: 240px;
+        height: 64px;
+        border-radius: 32px;
+        background-color: v.$base-btn-color;
+        display: grid;
+        place-items: center;
+        p {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          span {
+            font-family: v.$sub-font;
+            font-size: 20px;
+            font-weight: 700;
+            vertical-align: middle;  
+          }
+        }
+      }
+    }
+    .about-img {
+      flex: 50%;
+      img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        box-shadow: 64px 64px 0px 0px #000000;
+      }
+    }
+  }
+}
+
+.support {
+  @include padding-inline;
+  padding-block: 100px 150px;
+  background-color: v.$gray-support;
+  h2 {
+    margin-bottom: 42px;
+  }
+  .flex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .flex-item {
+      background-color: v.$white;
+      height: 150px;
+      display: flex;
+      .item-head {
+        flex: 300px;
+        display: grid;
+        place-items: center;
+        background-color: v.$base-btn-color;
+        clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+        h3 {
+          color: v.$white;
+          font-family: v.$sub-font;
+          font-size: 32px;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-align: center;
+          span {
+            display: block;
+            font-size: 16px;
+          }
+        }
+      }
+      .item-body {
+        flex: calc(100% - 300px);
+        padding: 24px 32px;
+        p {
+          font-size: 18px;
+          line-height: 175%;
+        }
+      }
+    }
+  }
+}
+
+.example {
+  @include padding-inline;
+  padding-block: 100px;
+  h2 {
+    margin-bottom: 42px;
+  }
+  .grid-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 60px;
+    .grid-item {
+      position: relative;
+      img {
+        width: 100%;
+      }
+      a {
+        width: 60px;
+        height: 30px;
+        background-color: v.$base-btn-color;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: grid;
+        place-items: center;
+        font-family: v.$sub-font;
+        font-weight: 600;
+      }
+    }
+  }
+  .viewallarchives {
+    @include viewmore;
+  }
+}
+
+.flow {
+  @include padding-inline;
+  padding-block: 60px 180px;
+  background-image: url(../img/bg-dotted.png);
+  background-size: 30px;
+  h2 {
+    margin-bottom: 88px;
+  }
+  .grid-list {
+    display: grid;
+    gap: 120px 110px;
+    grid-template-columns: 1fr 1fr 1fr;
+    .grid-item {
+      padding-block: 50px 60px;
+      padding-inline: 14px;
+      border-top: 1px solid v.$black;
+      border-bottom: 1px solid v.$black;
+      .icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .step {
+        display: block;
+        margin-bottom: 20px;
+        font-family: v.$sub-font;
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+        margin-bottom: 12px;
+        font-size: 25px;
+        font-weight: 700;
+      }
+      p {
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.faq {
+  @include padding-inline;
+  padding-block: 60px 120px;
+  .flex-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 64px;
+    .flex-item {
+      padding-block: 56px;
+      border-bottom: 1px solid v.$black;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .flexbox {
+        display: flex;
+        align-items: center;
+        .faq-head {
+          flex: 100px;
+          .faq-icon {
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background-color: v.$black;
+            &.answer {
+              background-color: v.$base-btn-color;
+            }
+            span {
+              color: v.$white;
+              font-family: v.$sub-font;
+              font-size: 40px;
+              font-weight: 600;
+            }
+          }
+        }
+        .faq-body {
+          flex: calc(100% - 100px);
+          p {
+            font-size: 20px;
+            line-height: normal;
+            &.question {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+  .viewmore {
+    @include viewmore;
+  }
+}
+
+.contact-bg {
+  background-image: url(../img/bg-black.png);
+  background-color: #000;
+}
+.contact {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  @include padding-inline;
+  padding-block: 80px;
+  h2 {
+    color: v.$white;
+    margin-bottom: 32px;
+  }
+  .flexbox {
+    display: flex;
+    .flex-item {
+      flex: 50%;
+      border-right: 1px solid v.$white;
+      padding-block: 24px 64px;
+      color: v.$white;
+      text-align: center;
+      &:last-child {
+        border-right: none;
+      }
+      .contact-icon {
+        margin-bottom: 48px;
+      }
+      .contact-tel {
+        display: inline-block;
+        text-align: center;
+        p {
+          font-family: v.$sub-font;
+          font-size: 40px;
+          font-weight: 600;
+          margin-bottom: 4px;
+        }
+        div {
+          background-color: v.$white;
+          color: v.$black;
+          height: 32px;
+          padding-inline: 28px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+      }
+      .contact-email a {
+        display: inline-grid;
+        place-items: center;
+        width: 420px;
+        height: 80px;
+        background-color: v.$base-btn-color;
+        position: relative;
+        span {
+          color: v.$base-font-color;
+          font-size: 24px;
+          font-weight: 600;
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          right: 28px;
+          transform: translateY(-50%) scale(1.5);
+        }
+      }
+    }
+  }
+}
+
+.line {
+  @include padding-inline;
+  padding-block: 64px;
+  h2 {
+    margin-bottom: 32px;
+  }
+  .line-btn {
+    text-align: center;
+    margin-bottom: 20px;
+    a {
+      display: inline-grid;
+      place-items: center;
+      width: 680px;
+      height: 96px;
+      border-radius: 10px;
+      background: v.$base-btn-color;
+      position: relative;
+      p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-right: 72px;
+        span {
+          color: v.$white;
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+      > img {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  > p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+  }
+}

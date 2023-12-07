@@ -1,0 +1,56 @@
+@use 'config/variables' as v;
+
+body {
+  font-family: v.$base-font;
+  color: v.$base-font-color;
+  max-width: 1920px;
+  margin-inline: auto;
+  header {
+    max-width: 1920px;
+    margin-inline: auto;
+  }
+}
+h1 {
+  font-weight: 700;
+}
+input::placeholder {
+  color: v.$gray;
+}
+
+.section-h2 {
+  color: v.$base-font-color;
+  font-family: v.$sub-font;
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 125%;
+  width: fit-content;
+  position: relative;
+  span {
+    color: v.$sub-font-color;
+  }
+  div {
+    position: absolute;
+    right: -12px;
+    bottom: 0.3em;
+    transform: translateX(100%);
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    span {
+      display: block;
+      height: 78px;
+      width: 26px;
+      border-right: 1px solid v.$black;
+      transform: rotateZ(24deg);
+      &.white {
+        border-right: 1px solid v.$white;
+      }
+    }
+    p {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+      word-break: keep-all;
+    }
+  }
+}

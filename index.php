@@ -39,7 +39,6 @@ function index() {
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet"></head>
     <!-- css -->
     <link rel="stylesheet" href="assets/css/style.css">
-
     <!-- scripts -->
     
 <body>
@@ -66,6 +65,7 @@ function index() {
     
             break;
     }    
+    require 'templates/footer.php';
     ?>
 
 </body>

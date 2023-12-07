@@ -1,1 +1,5 @@
-@use 'header.scss';
+@use '_reset.scss';
+@use '_base.scss';
+@use '_index.scss';
+
+@use 'pages/top';
