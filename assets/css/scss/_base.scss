@@ -1,4 +1,5 @@
 @use 'config/variables' as v;
+@use 'mixin' as *;
 
 body {
   font-family: v.$base-font;
@@ -53,4 +54,29 @@ input::placeholder {
       word-break: keep-all;
     }
   }
+}
+
+.subpage-h2 {
+  padding-top: 160px;
+  padding-left: (calc((100% - 1360px) / 2));
+  > div {
+    padding-bottom: 30px;
+    border-bottom: 1px solid v.$black;
+  }
+}
+
+.breadcrumb {
+  @include padding-inline;
+  padding-block: 50px 10px;
+  p {
+    font-size: 18px;
+  }
+}
+
+.section-h3 {
+  padding: 18px 20px;
+  font-size: 32px;
+  font-weight: 700;
+  border-left: 10px solid v.$black;
+  margin-bottom: 44px;
 }

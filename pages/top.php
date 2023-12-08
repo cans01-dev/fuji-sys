@@ -1,3 +1,4 @@
+<?php require 'templates/header.php'; ?>
 <main>
   <div class="mainvisual-bg">
     <div class="mainvisual">
@@ -13,7 +14,7 @@
           厳選されたエキスパートたちが一堂に会し、プロ精神と情熱をもって、お客様の不動産売却のお手伝いをいたします。<br>
           お悩み中でも大歓迎です。どんな些細なご相談でもお気軽にお知らせください。</p>
           <div class="mainvisual-contact">
-            <a href=""><span>Contact</span></a>
+            <a href="/contact"><span>Contact</span></a>
           </div>
         </div>
       </div>
@@ -32,7 +33,7 @@
         <h3><span>中村区</span>のマンションのことなら</h3>
         <p>中村区にエリアを絞っているからこそ、私たちには他の会社にはない強みがあります。専門性の向上や進捗管理のしやすさから、お客様一人ひとりに寄り添ったご案内が可能です。<br><br> この強みは、お客様にとってより深い関係性と信頼感を築く一方で、弊社自体の成長とブランドの差別化にも寄与します。</p>
         <div class="about-contact">
-          <a href=""><p><span>Contact</span><img src="../assets/img/arrow.png" alt=""></p></a>
+          <a href="/contact"><p><span>Contact</span><img src="../assets/img/arrow.png" alt=""></p></a>
         </div>
       </div>
       <div class="about-img">
@@ -235,46 +236,8 @@
 
   <?php require 'templates/search.php'; ?>
 
-  <div class="contact-bg">
-    <section class="contact">
-      <h2 class="section-h2"><span>C</span>ontact
-        <div><span class="white"></span><p>お問い合わせ</p></div>
-      </h2>
-      <div class="flexbox">
-        <div class="flex-item">
-          <div class="contact-icon">
-            <img src="../assets/img/Group 6.png" alt="">
-          </div>
-          <div class="contact-tel">
-            <p>052-485-9130</p>
-            <div><span>営業時間</span><span>10:00-18:00</span></div>
-          </div>
-        </div>
-        <div class="flex-item">
-          <div class="contact-icon">
-            <img src="../assets/img/Group 7.png" alt="">
-          </div>
-          <div class="contact-email">
-            <a href=""><span>お問い合わせフォーム</span><img src="../assets/img/arrow.png" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <?php require 'templates/contact.php'; ?>
 
-  <section class="line">
-    <h2 class="section-h2"><span>L</span>INE
-      <div><span></span><p>ラインでのお問い合わせ</p></div>
-    </h2>
-    <div class="line-btn">
-      <a href="">
-        <p>
-          <img src="../assets/img/line.png" alt="">
-          <span>公式LINEはこちら</span>
-        </p>
-        <img src="../assets/img/arrow-white.png" alt="">
-      </a>
-    </div>
-    <p>LINEからもお問い合わせいただけます。<br>お気軽にお問い合わせください。</p>
-  </section>
+  <?php require 'templates/line.php'; ?>
 </main>
+<?php require 'templates/footer.php'; ?>

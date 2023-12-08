@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '1b4ceb1666b2e6b0ec4c8f4b2c39b12a59c2c2a4',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '1b4ceb1666b2e6b0ec4c8f4b2c39b12a59c2c2a4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -25,6 +25,15 @@
             'reference' => '181d480e08d9476e61381e04a71b34dc0432e812',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nikic/fast-route',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'smarty/smarty' => array(
+            'pretty_version' => 'v4.3.4',
+            'version' => '4.3.4.0',
+            'reference' => '3931d8f54b8f7a4ffab538582d34d4397ba8daa5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../smarty/smarty',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

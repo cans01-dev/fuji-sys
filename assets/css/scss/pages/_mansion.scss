@@ -1,0 +1,231 @@
+@use '../config/variables' as v;
+@use '../mixin' as *;
+
+.mansion-info {
+  @include padding-inline;
+  padding-bottom: 150px;
+  .flexbox {
+    display: flex;
+    border: 1px solid #000;
+    margin-bottom: 50px;
+    .appraisal {
+      flex: 480px;
+      background-color: v.$orange;
+      color: v.$white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      h4 {
+        margin-bottom: 42px;
+        font-size: 24px;
+      }
+      p {
+        font-weight: 600;
+        .tubotanka {
+          font-size: 24px;
+          margin-right: 32px;
+        }
+        .number {
+          font-size: 60px;
+          font-family: v.$sub-font;
+        }
+        .unit {
+          font-size: 30px;
+        }
+      }
+    }
+    .comment {
+      flex: calc(100% - 480px);
+      padding: 64px 56px;
+      h4 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 175%;
+      }
+    }
+  }
+  .mansion-detail {
+    margin-bottom: 40px;
+    .detail-row {
+      display: flex;
+      border-bottom: 1px solid v.$black;
+      &:last-child {
+        border-bottom: none;
+      }
+      dt {
+        flex: 130px;
+        background-color: v.$black;
+        color: v.$white;
+        display: grid;
+        place-items: center;
+        font-weight: initial;
+        span {
+          font-size: 22px;
+        }
+      }
+      dd {
+        width: calc(100% - 130px);
+        padding: 20px;
+        font-size: 20px;
+        line-height: 175%;
+        &.half {
+          width: calc(50% - 130px);
+        }
+      }
+    }
+  }
+  .mansion-gallery .grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+.mansion-support {
+  @include padding-inline;
+  padding-block: 70px 85px;
+  background-color: v.$gray-mansion-support;
+  .flex-list {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    .flex-item {
+      width: 360px;
+      .item-head {
+        text-align: center;
+        margin-bottom: 24px;
+        > div {
+          width: 260px;
+          height: 260px;
+          border-radius: 50%;
+          display: inline-grid;
+          place-items: center;
+          background-color: v.$base-btn-color;
+          h3 {
+            color: v.$white;
+            font-family: v.$sub-font;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            span {
+              display: block;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .item-body p {
+        font-size: 18px;
+        line-height: 175%;
+      }
+    }
+  }
+}
+
+.mansion-flow {
+  @include padding-inline;
+  padding-block: 75px 120px;
+  .flow-wrapper {
+    display: flex;
+    justify-content: center;
+    .flex-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 900px;
+      position: relative;
+      .flex-item {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        .flow-icon {
+          flex: 120px;
+          height: 120px;
+          background-color: v.$white;
+          border-radius: 50%;
+          border: 2px solid v.$black;
+          display: grid;
+          place-items: center;
+          img {
+            width: 90px;
+            height: 90px;
+          }
+        }
+        .flow-content {
+          flex: calc(100% - 120px - 36px);
+          .flow-head {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            .step {
+              font-family: v.$sub-font;
+              font-size: 27px;
+              font-weight: 600;
+            }
+            h3 {
+              font-size: 25px;
+              font-weight: 700;
+            }
+          }
+          p {
+            line-height: normal;
+          }
+        }
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: 59px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: v.$black;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+.mansion-around {
+  @include padding-inline;
+  padding-block: 50px 90px;
+  .around-aligncenter {
+    display: flex;
+    justify-content: center;
+    .around-wrapper {
+      > p {
+        font-size: 22px;
+        margin-bottom: 30px;
+      }
+      .flex-list {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 24px;
+        .flex-item {
+          width: 380px;
+          padding: 10px;
+          border: 1px solid v.$black;
+          img {
+            width: 100%;
+          }
+          p {
+            font-size: 18px;
+            padding-left: 10px;
+          }
+        }
+      }
+      .viewmore {
+        text-align: right;
+        a {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

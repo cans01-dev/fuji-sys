@@ -105,6 +105,13 @@ footer {
         }
     }
     .search-form {
+        .benner-p {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 175%;
+            margin-bottom: 44px;
+        }
         .flexbox {
             display: flex;
             justify-content: space-between;
@@ -149,5 +156,50 @@ footer {
                 }
             }
         }
+    }
+}
+
+.line {
+    @include padding-inline;
+    padding-block: 64px;
+    background-color: v.$gray-line;
+    h2 {
+      margin-bottom: 32px;
+    }
+    .line-btn {
+      text-align: center;
+      margin-bottom: 20px;
+      a {
+        display: inline-grid;
+        place-items: center;
+        width: 680px;
+        height: 96px;
+        border-radius: 10px;
+        background: v.$base-btn-color;
+        position: relative;
+        p {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding-right: 72px;
+          span {
+            color: v.$white;
+            font-size: 24px;
+            font-weight: 700;
+          }
+        }
+        > img {
+          position: absolute;
+          top: 50%;
+          right: 30px;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    > p {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 150%;
     }
 }
