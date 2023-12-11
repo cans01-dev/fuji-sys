@@ -28,7 +28,7 @@
             <li><a href="">マンション一覧</a></li>
             <li><a href="">無料査定フォーム</a></li>
             <li><a href="">お問い合わせ</a></li>
-            <li><a href="">プライバシーポリシー</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
           </ul>
         </nav>
       </div>

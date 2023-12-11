@@ -371,6 +371,11 @@ th {
   font-weight: bold;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 90px;
+}
+
 body {
   font-family: "Noto Sans JP", sans-serif;
   color: #000;
@@ -438,10 +443,12 @@ input::placeholder {
 }
 
 .breadcrumb {
-  padding-inline: calc((100% - 1360px) / 2);
-  padding-block: 50px 10px;
+  padding-left: calc((100% - 1360px) / 2);
 }
-.breadcrumb p {
+.breadcrumb div {
+  padding-block: 50px 14px;
+}
+.breadcrumb div p {
   font-size: 18px;
 }
 
@@ -1221,7 +1228,7 @@ footer .footer-inner .flexbox .footer-nav nav {
   color: #FF7A00;
 }
 .contactform-form .contactform-footer .confirm button,
-.contactform-form .contactform-footer .submit button,
+.contactform-form .contactform-footer .submit input,
 .contactform-form .contactform-footer .back button {
   width: 840px;
   height: 80px;
@@ -1230,7 +1237,7 @@ footer .footer-inner .flexbox .footer-nav nav {
   place-items: center;
 }
 .contactform-form .contactform-footer .confirm button span,
-.contactform-form .contactform-footer .submit button span,
+.contactform-form .contactform-footer .submit input span,
 .contactform-form .contactform-footer .back button span {
   font-size: 24px;
   font-weight: 600;
@@ -1250,6 +1257,120 @@ footer .footer-inner .flexbox .footer-nav nav {
 }
 .contactform-thanks p {
   font-size: 24px;
+}
+
+.subpage-h2 .noborder {
+  border-bottom: none;
+}
+
+.breadcrumb div.border {
+  border-bottom: 1px solid #000;
+}
+
+.search-result {
+  padding-inline: calc((100% - 1360px) / 2);
+  padding-block: 28px 150px;
+}
+.search-result h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.search-result .search-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.search-result .search-option.buttom {
+  margin-bottom: 50px;
+}
+.search-result .search-option p {
+  font-size: 22px;
+}
+.search-result .search-option .flexbox {
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+}
+.search-result .search-option .flexbox > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.search-result .search-option .flexbox > div .select-wrapper {
+  border: 1px solid #D9D9D9;
+  position: relative;
+}
+.search-result .search-option .flexbox > div .select-wrapper::before {
+  content: url(../img/arrow-down.png);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%) scale(0.7);
+}
+.search-result .search-option .flexbox > div .select-wrapper select {
+  padding: 4px 32px 4px 10px;
+}
+.search-result .search-results {
+  margin-bottom: 32px;
+}
+.search-result .search-results .grid-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.search-result .search-results .grid-list img {
+  width: 100%;
+}
+.search-result .search-results .grid-list div {
+  padding: 12px 20px;
+  background-color: #000;
+}
+.search-result .search-results .grid-list div p {
+  color: #FFF;
+  font-size: 24px;
+}
+.search-result .search-pagenation {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.search-result .search-pagenation .flex-list {
+  display: inline-flex;
+  gap: 30px;
+}
+.search-result .search-pagenation .flex-list .flex-item a {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+}
+.search-result .search-pagenation .flex-list .flex-item a.active {
+  background-color: #D9D9D9;
+}
+.search-result .search-pagenation .flex-list .flex-item a:hover {
+  background-color: #D9D9D9;
+  opacity: 0.4;
+}
+.search-result .search-pagenation .flex-list .flex-item a span {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  line-height: 125%;
+}
+.search-result .re-search {
+  text-align: center;
+}
+.search-result .re-search button {
+  display: inline-grid;
+  place-items: center;
+  width: min(100%, 850px);
+  height: 80px;
+  background-color: #FF7A00;
+}
+.search-result .re-search button span {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 2.4px;
 }
 
 .mansion-info {

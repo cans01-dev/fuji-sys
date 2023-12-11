@@ -4,11 +4,12 @@ require 'vendor/autoload.php';
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'index');
     $r->addRoute('GET', '/contact', 'contact');
+    $r->addRoute('GET', '/privacy-policy', 'privacy_policy');
+
     $r->addRoute('GET', '/mansion', 'mansion_index');
     $r->addRoute('GET', '/mansion/{id:\d+}', 'mansion_show');
     
     $r->addRoute('POST', '/api/contact', 'contact_send');
-
 });
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
@@ -23,22 +24,20 @@ $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
-        // ... 404 Not Found
+        echo '404 not found';
         break;
     case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
-        // ... 405 Method Not Allowed
+        echo '405 method not allowed';
         break;
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         if (!empty($vars)) {
-            // ... call $handler with $vars
             echo $handler($vars);
         } else {
             echo $handler();
         }
-
         break;
 }
 
@@ -51,8 +50,12 @@ function contact() {
     require_once 'pages/contact.php';
 }
 
-function mansion_index() {
+function privacy_policy() {
+    require_once 'pages/privacy_policy.php';
+}
 
+function mansion_index() {
+    require_once 'pages/mansion_index.php';
 }
 
 function mansion_show() {

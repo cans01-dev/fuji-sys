@@ -8,12 +8,14 @@
     </div>
   </div>
   <div class="breadcrumb">
-    <p>
-      <a href="">TOP</a> 〉
-      <a href="">マンション検索</a> 〉
-      <a href="">マンション情報一覧</a> 〉
-      <a href="">マンション名</a>
-    </p>
+    <div>
+      <p>
+        <a href="">TOP</a> 〉
+        <a href="">マンション検索</a> 〉
+        <a href="">マンション情報一覧</a> 〉
+        <a href="">マンション名</a>
+      </p>
+    </div>
   </div>
   <section class="mansion-info">
     <h3 class="section-h3">マンション名マンション名マンション名</h3>

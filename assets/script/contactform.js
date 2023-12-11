@@ -9,7 +9,7 @@ const submit = document.querySelector('.contactform-footer .submit');
 const back = document.querySelector('.contactform-footer .back');
 
 const contactformForm = document.querySelector('.contactform-form');
-const contactformThanks = document.querySelector('.contactform-thanks')
+const contactformThanks = document.querySelector('.contactform-thanks');
 
 const circularG = document.getElementById('circularG');
 

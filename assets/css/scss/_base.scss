@@ -1,6 +1,10 @@
 @use 'config/variables' as v;
 @use 'mixin' as *;
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 90px;
+}
 body {
   font-family: v.$base-font;
   color: v.$base-font-color;
@@ -66,10 +70,12 @@ input::placeholder {
 }
 
 .breadcrumb {
-  @include padding-inline;
-  padding-block: 50px 10px;
-  p {
-    font-size: 18px;
+  padding-left: (calc((100% - 1360px) / 2));
+  div {
+    padding-block: 50px 14px;
+    p {
+      font-size: 18px;
+    }
   }
 }
 
