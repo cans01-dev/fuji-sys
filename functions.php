@@ -29,4 +29,8 @@ function get_page_numbers($posts_par_page, $posts_sum, $page) {
   ];
 }
 
+function to_class_object($mansion) {
+  return new Mansion($mansion);
+}
+
 ?>

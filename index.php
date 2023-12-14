@@ -1,11 +1,19 @@
 <?php
 
 require './vendor/autoload.php';
-require './dbconnect.php';
 require './functions.php';
+require './classes/mypdo.php';
 
-use Carbon\Carbon;
-Carbon::setLocale('ja');
+try {
+  $dsn = 'mysql:dbname=fuji-sys;host=localhost';
+  $user = 'root';
+  $password = '';
+  $MyPDO = new MyPDO($dsn, $user, $password);
+
+} catch (PDOException $e) {
+  $err_msg = $e->getMessage();
+  exit($err_msg);
+}
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'index');
@@ -14,6 +22,17 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
     $r->addRoute('GET', '/mansions', 'mansion_index');
     $r->addRoute('GET', '/mansions/{id:\d+}', 'mansion_show');
+
+    $r->addGroup('/admin', function ($r) {
+        $r->addRoute('GET', '/', 'admin_index');
+        $r->addRoute('GET', '/mansions', 'admin_mansions_index');
+        $r->addRoute('GET', '/mansions/create', 'admin_mansions_create');
+        $r->addRoute('POST', '/mansions', 'admin_mansions_store');
+        $r->addRoute('GET', '/mansions/{id:\d+}', 'admin_mansions_show');
+        $r->addRoute('GET', '/mansions/{id:\d+}/edit', 'admin_mansions_edit');
+        $r->addRoute('PUT', '/mansions/{id:\d+}', 'admin_mansions_update');
+        $r->addRoute('DELETE', '/mansions/{id:\d+}', 'admin_mansions_delete');
+    });
     
     $r->addRoute('POST', '/api/contact', 'contact_send');
 });
@@ -61,55 +80,70 @@ function privacy_policy() {
 }
 
 function mansion_index() {
-    global $pdo;
+    global $MyPDO;
     
-    $page = $_GET["page"] ?? 1;
     $limit = $_GET["limit"] ?? 20;
+    $page = $_GET["page"] ?? 1;
     $order = $_GET["order"] ?? 'latest';
+    $address = $_GET["address"] ?? null;
+    $freeword = $_GET["freeword"] ?? null;
 
-    if ($order == "latest") {
-        $order_sql = "ORDER BY created_at";
-    } elseif ($order == "price") {
-        $order_sql = "ORDER BY unit_price";
-    } elseif ($order == "price-desc") {
-        $order_sql = "ORDER BY unit_price DESC";
-    } else {
-        $order_sql = "";
-    }
-    
-    if (isset($_GET["address"]) && !isset($_GET["freeword"])) {
-        $where_sql = "WHERE address LIKE '%{$_GET["address"]}%'";
-    } elseif (!isset($_GET["address"]) && isset($_GET["freeword"])) {
-        $where_sql = "WHERE CONCAT(address, access, IFNULL(note, '')) LIKE '%{$_GET["freeword"]}%'";
-    } elseif (isset($_GET["address"]) && isset($_GET["freeword"])) {
-        $where_sql = "WHERE address LIKE '%{$_GET["address"]}%' AND CONCAT(address, access, IFNULL(note, '')) LIKE '%{$_GET["freeword"]}%'";
-    } else {
-        $where_sql = "";
-    }
-
-    $mansions_count = $pdo->query("SELECT COUNT(*) FROM mansions $where_sql")->fetchColumn();
+    $mansions_count = $MyPDO->getMansions($address, $freeword, count: true);
     $pgnt = get_page_numbers($limit, $mansions_count, $page);
-    $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
+    $offset = $pgnt["offset"];
     
-    $sql = "SELECT * FROM mansions $where_sql $order_sql LIMIT $limit OFFSET {$pgnt["offset"]}";
-    $mansions = $pdo->query($sql)->fetchAll();
-
-    // exit($sql);
+    $mansions = $MyPDO->getMansions($address, $freeword, $order, $limit, $offset);
+    $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
     
     require_once 'pages/mansion_index.php';
 }
 
 function mansion_show($vars) {
-    global $pdo;
+    global $MyPDO;
     $mansion_id = $vars["id"];
-    $mansion = $pdo->query("SELECT * FROM mansions WHERE id = $mansion_id")->fetch();
-    $mansion["birthday"] = new Carbon($mansion["birthday"]);
-
+    if (!$mansion = $MyPDO->query("SELECT * FROM mansions WHERE id = $mansion_id")->fetch()) {
+        echo '404 not found';
+        return;
+    }
+    $mansion = new Mansion($mansion);
+    
     require_once 'pages/mansion_show.php';
 }
 
 // admin
+function admin_index() {
+    require_once 'pages/admin/index.php';
+}
 
+function admin_mansion_index() {
+
+
+    require_once 'pages/admin/mansion_index.php';
+}
+
+function admin_mansion_create() {
+    require_once 'pages/admin/mansion_create.php';
+}
+
+function admin_mansion_store() {
+    require_once 'pages/admin/mansion_store.php';
+}
+
+function admin_mansion_show() {
+    require_once 'pages/admin/mansion_show.php';
+}
+
+function admin_mansion_edit() {
+    require_once 'pages/admin/mansion_edit.php';
+}
+
+function admin_mansion_update() {
+    require_once 'pages/admin/mansion_update.php';
+}
+
+function admin_mansion_delete() {
+    require_once 'pages/admin/mansion_delete.php';
+}
 
 // API
 function contact_send() {

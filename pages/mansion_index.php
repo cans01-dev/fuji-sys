@@ -55,10 +55,10 @@
       <ul class="grid-list">
         <?php foreach ($mansions as $mansion): ?>
           <li class="grid-item">
-            <a href="/mansions/<?php echo $mansion["id"] ?>">
+            <a href="/mansions/<?php echo $mansion->id ?>">
               <img src="../assets/img/Rectangle 140.png" alt="">
               <div>
-                <p><?php echo $mansion["title"] ?></p>
+                <p><?php echo $mansion->title ?></p>
               </div>
             </a>
           </li>
