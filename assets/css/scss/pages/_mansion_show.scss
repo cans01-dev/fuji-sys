@@ -85,6 +85,38 @@
   }
 }
 
+.mansion-policy {
+  @include padding-inline;
+  padding-block: 88px;
+  .section-h3.policy {
+    margin-bottom: 64px;
+  }
+  .flexbox {
+    display: flex;
+    gap: 30px;
+    div {
+      flex: 50%;
+      position: relative;
+      h4 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 28px;
+        font-weight: 700;
+        &.our {
+          color: v.$white;
+          background-color: v.$base-btn-color;
+          padding: 8px 16px;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .mansion-support {
   @include padding-inline;
   padding-block: 70px 85px;

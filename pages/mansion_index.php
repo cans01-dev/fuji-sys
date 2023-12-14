@@ -10,22 +10,7 @@
 
   <div class="search-bg">
     <section class="search">
-      <div class="search-form">
-        <form action="">
-          <div class="flexbox">
-            <div class="address">
-              <label for="">名古屋市中村区</label>
-              <input type="text" placeholder="以降の住所">
-            </div>
-            <div class="freeword">
-              <input type="text" placeholder="フリーワード">
-            </div>
-          </div>
-          <div class="search-submit">
-            <button type="submit"><span>無料で査定結果に進む</span></button>
-          </div>
-        </form>
-      </div>
+      <?php require './templates/parts/search_form.php'; ?>
     </section>
   </div>
 
@@ -40,27 +25,27 @@
   </div>
 
   <div class="search-result">
-    <h3>中村区 の検索結果一覧</h3>
+    <h3><?php echo $_GET["address"] ?? $_GET["freeword"] ?? '中村区' ?> の検索結果一覧</h3>
     <div class="search-option">
-      <p class="">0件中0～0件を表示</p>
+      <p class=""><?php echo $pgnt_stmt ?></p>
       <div class="flexbox">
         <div>
           <label for="">表示件数</label>
           <div class="select-wrapper">
-            <select name="">
+            <select name="limit" class="searchLimit" id="searchLimit" form="searchForm">
               <option value="20">20件</option>
-              <option value="20">40件</option>
-              <option value="20">60件</option>
+              <option value="40">40件</option>
+              <option value="60">60件</option>
             </select>
           </div>
         </div>
         <div>
           <label for="">並び順</label>
           <div class="select-wrapper">
-            <select name="">
-              <option value="20">おすすめ順</option>
-              <option value="20">価格の安い順</option>
-              <option value="20">価格の高い順</option>
+            <select name="order" class="searchOrder" id="searchOrder" form="searchForm">
+              <option value="latest">新着順</option>
+              <option value="price">価格の安い順</option>
+              <option value="price-desc">価格の高い順</option>
             </select>
           </div>
         </div>
@@ -68,74 +53,59 @@
     </div>
     <div class="search-results">
       <ul class="grid-list">
-        <li class="grid-item">
-          <img src="../assets/img/Rectangle 140.png" alt="">
-          <div>
-            <p>マンション名マンション名マンション名</p>
-          </div>
-        </li>
-        <li class="grid-item">
-          <img src="../assets/img/Rectangle 140.png" alt="">
-          <div>
-            <p>マンション名マンション名マンション名</p>
-          </div>
-        </li>
-        <li class="grid-item">
-          <img src="../assets/img/Rectangle 140.png" alt="">
-          <div>
-            <p>マンション名マンション名マンション名</p>
-          </div>
-        </li>
-        <li class="grid-item">
-          <img src="../assets/img/Rectangle 140.png" alt="">
-          <div>
-            <p>マンション名マンション名マンション名</p>
-          </div>
-        </li>
+        <?php foreach ($mansions as $mansion): ?>
+          <li class="grid-item">
+            <a href="/mansions/<?php echo $mansion["id"] ?>">
+              <img src="../assets/img/Rectangle 140.png" alt="">
+              <div>
+                <p><?php echo $mansion["title"] ?></p>
+              </div>
+            </a>
+          </li>
+        <?php endforeach; ?>
       </ul>
     </div>
     <div class="search-option buttom">
-      <p class="">0件中0～0件を表示</p>
-      <div class="flexbox">
-        <div>
-          <label for="">表示件数</label>
-          <div class="select-wrapper">
-            <select name="">
-              <option value="20">20件</option>
-              <option value="20">40件</option>
-              <option value="20">60件</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label for="">並び順</label>
-          <div class="select-wrapper">
-            <select name="">
-              <option value="20">おすすめ順</option>
-              <option value="20">価格の安い順</option>
-              <option value="20">価格の高い順</option>
-            </select>
-          </div>
-        </div>
-      </div>
+      <p class=""><?php echo $pgnt_stmt ?></p>
     </div>
+
     <div class="search-pagenation">
       <ul class="flex-list">
-        <li class="flex-item">
-          <a href=""><img src="../assets/img/arrow-left.png" alt=""></a>
-        </li>
-        <li class="flex-item">
-          <a href=""><span>1</span></a>
-        </li>
-        <li class="flex-item">
-          <a href="" class="active"><span>2</span></a>
-        </li>
-        <li class="flex-item">
-          <a href=""><span>3</span></a>
-        </li>
-        <li class="flex-item">
-          <a href=""><img src="../assets/img/arrow-right.png" alt=""></a>
-        </li>
+        <?php if ($pgnt["first"]): ?>
+          <li class="flex-item">
+            <a href="<?php echo url_param_change(['page' => $pgnt["first"]]); ?>">
+              <img src="../assets/img/arrow-left.png" alt="">
+            </a>
+          </li>
+        <?php endif; ?>
+        <?php if ($pgnt["prev"]): ?>
+          <li class="flex-item">
+            <a href="<?php echo url_param_change(['page' => $pgnt["prev"]]); ?>">
+              <span><?php echo $pgnt["prev"] ?></span>
+            </a>
+          </li>
+        <?php endif; ?>
+        <?php if ($pgnt["current"]): ?>
+          <li class="flex-item">
+            <a class="active" href="<?php echo url_param_change(['page' => $pgnt["current"]]); ?>">
+              <span><?php echo $pgnt["current"] ?></span>
+            </a>
+          </li>
+        <?php endif; ?>
+        <?php if ($pgnt["next"]): ?>
+          <li class="flex-item">
+            <a href="<?php echo url_param_change(['page' => $pgnt["next"]]); ?>">
+              <span><?php echo $pgnt["next"] ?></span>
+            </a>
+          </li>
+        <?php endif; ?>
+        <?php if ($pgnt["last"]): ?>
+          <li class="flex-item">
+            <a href="<?php echo url_param_change(['page' => $pgnt["last"]]); ?>">
+              <img src="../assets/img/arrow-right.png" alt="">
+            </a>
+          </li>
+        <?php endif; ?>
       </ul>
     </div>
     <div class="re-search">
@@ -145,5 +115,6 @@
 
   <?php require 'templates/line.php'; ?>
 </main>
+<script src="../assets/script/search.js" defer></script>
 
 <?php require 'templates/footer.php'; ?>

@@ -116,8 +116,7 @@ footer {
             display: flex;
             justify-content: space-between;
             margin: 0 0 44px 0;
-            .address,
-            .freeword {
+            div {
                 height: 64px;
                 background-color: v.$white;
                 border: 2px solid #D9D9D9;
@@ -125,19 +124,26 @@ footer {
                 padding: 0 28px;
                 display: flex;
                 align-items: center;
-            }
-            .address {
-                width: calc(100% * 0.6 - 14px);
-                label {
-                    word-break: keep-all;
-                    font-weight: 700;
-                    padding: 3px 12px 3px 0;
-                    margin: 0 12px 0 0;
-                    border-right: 1px solid v.$base-font-color
+                input {
+                    display: block;
+                    width: 100%;
+                    &:focus {
+                        outline: none;
+                    }
                 }
-            }
-            .freeword {
-                width: calc(100% * 0.4 - 14px);
+                &.address {
+                    width: calc(100% * 0.6 - 14px);
+                    label {
+                        word-break: keep-all;
+                        font-weight: 700;
+                        padding: 3px 12px 3px 0;
+                        margin: 0 12px 0 0;
+                        border-right: 1px solid v.$base-font-color
+                    }
+                }
+                &.freeword {
+                    width: calc(100% * 0.4 - 14px);
+                }
             }
         }
         .search-submit {

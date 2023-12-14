@@ -1,6 +1,8 @@
 {
     "require": {
         "nikic/fast-route": "^1.3",
-        "smarty/smarty": "^4.3"
+        "smarty/smarty": "^4.3",
+        "google/apiclient": "^2.15",
+        "nesbot/carbon": "^2.72"
     }
 }

@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="contactform-form">
-    <form action="" method="post" id="contactform-contact" name="contact">
+    <form action="/contact-confirm" method="post" id="contactform-contact" name="contact">
       <h3>お客様情報</h3>
       <ul class="field-list">
         <li class="field-item">
@@ -119,29 +119,12 @@
         <div class="privacy-policy"><a href="">プライバシーポリシー</a></div>
         <div class="approval"><p><input type="checkbox"><label>上記に同意する<span> *</span></label></p></div>
 
-        <div class="confirm"><button type="button" id="confirm-btn"><span>確認画面へ</span></button></div>
-        <div class="submit"><button type="button" id="submit-btn"><span>送信する</span></button></div>
-        <div class="back"><button type="button" id="back-btn"><span>入力画面に戻る</span></button></div>
-
-        <div id="circularG" style="display: none;">
-          <div id="circularG_1" class="circularG"></div>
-          <div id="circularG_2" class="circularG"></div>
-          <div id="circularG_3" class="circularG"></div>
-          <div id="circularG_4" class="circularG"></div>
-          <div id="circularG_5" class="circularG"></div>
-          <div id="circularG_6" class="circularG"></div>
-          <div id="circularG_7" class="circularG"></div>
-          <div id="circularG_8" class="circularG"></div>
-        </div>
+        <div class="confirm"><input type="submit" value="確認画面へ"></div>
       </div>
     </form>
-  </div>
-  <div class="contactform-thanks">
-    <p>送信が完了しました。</p>
   </div>
 
   <?php require 'templates/line.php'; ?>
 </main>
-<script src="../assets/script/contactform.js"></script>
 
 <?php require 'templates/footer.php'; ?>

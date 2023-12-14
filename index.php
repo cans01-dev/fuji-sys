@@ -1,13 +1,19 @@
-<?php 
-require 'vendor/autoload.php';
+<?php
+
+require './vendor/autoload.php';
+require './dbconnect.php';
+require './functions.php';
+
+use Carbon\Carbon;
+Carbon::setLocale('ja');
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'index');
     $r->addRoute('GET', '/contact', 'contact');
     $r->addRoute('GET', '/privacy-policy', 'privacy_policy');
 
-    $r->addRoute('GET', '/mansion', 'mansion_index');
-    $r->addRoute('GET', '/mansion/{id:\d+}', 'mansion_show');
+    $r->addRoute('GET', '/mansions', 'mansion_index');
+    $r->addRoute('GET', '/mansions/{id:\d+}', 'mansion_show');
     
     $r->addRoute('POST', '/api/contact', 'contact_send');
 });
@@ -55,10 +61,38 @@ function privacy_policy() {
 }
 
 function mansion_index() {
+    global $pdo;
+    
+    $page = $_GET["page"] ?? 1;
+    $limit = $_GET["limit"] ?? 20;
+    $order = $_GET["order"] ?? 'latest';
+
+    if ($order == "latest") {
+        $order_sql = "ORDER BY created_at";
+    } elseif ($order == "price") {
+        $order_sql = "ORDER BY unit_price";
+    } elseif ($order == "price-desc") {
+        $order_sql = "ORDER BY unit_price DESC";
+    } else {
+        $order_sql = "";
+    }
+    
+    $mansions_count = $pdo->query("SELECT COUNT(*) FROM mansions")->fetchColumn();
+    $pgnt = get_page_numbers($limit, $mansions_count, $page);
+    $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
+
+    $sql = "SELECT * FROM mansions $order_sql LIMIT $limit OFFSET {$pgnt["offset"]}";
+    $mansions = $pdo->query($sql)->fetchAll();
+    
     require_once 'pages/mansion_index.php';
 }
 
-function mansion_show() {
+function mansion_show($vars) {
+    global $pdo;
+    $mansion_id = $vars["id"];
+    $mansion = $pdo->query("SELECT * FROM mansions WHERE id = $mansion_id")->fetch();
+    $mansion["birthday"] = new Carbon($mansion["birthday"]);
+
     require_once 'pages/mansion_show.php';
 }
 

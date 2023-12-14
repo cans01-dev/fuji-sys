@@ -13,48 +13,50 @@
         <a href="">TOP</a> 〉
         <a href="">マンション検索</a> 〉
         <a href="">マンション情報一覧</a> 〉
-        <a href="">マンション名</a>
+        <a href=""><?php echo $mansion["title"] ?></a>
       </p>
     </div>
   </div>
   <section class="mansion-info">
-    <h3 class="section-h3">マンション名マンション名マンション名</h3>
+    <h3 class="section-h3"><?php echo $mansion["title"] ?></h3>
     <div class="flexbox">
       <div class="appraisal">
         <div>
           <h4>査定金額</h4>
           <p>
             <span class="tubotanka">坪単価</span>
-            <span class="number">10.2</span>
+            <span class="number"><?php echo $mansion["unit_price"] ?></span>
             <span class="unit">万円</span>
           </p>
         </div>
       </div>
       <div class="comment">
         <h4>担当者コメント</h4>
-        <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。</p>
+        <p><?php echo $mansion["comment"] ?? 'ーーー' ?></p>
       </div>
     </div>
     <div class="mansion-detail">
       <dl>
         <div class="detail-row">
-          <dt><span>所在地</span></dt><dd>愛知県名古屋市中村区ーーー</dd>
+          <dt><span>所在地</span></dt><dd><?php echo $mansion["address"] ?></dd>
         </div>
         <div class="detail-row">
-          <dt><span>交通</span></dt><dd>ーーー</dd>
+          <dt><span>交通</span></dt><dd><?php echo $mansion["access"] ?></dd>
         </div>
         <div class="detail-row">
-          <dt><span>総戸数</span></dt><dd class="half">ーーー</dd>
-          <dt><span>築年数</span></dt><dd class="half">ーーー</dd>
+          <dt><span>総戸数</span></dt><dd class="half"><?php echo $mansion["total_units"] ?>戸</dd>
+          <dt><span>築年数</span></dt>
+          <dd class="half">
+            <?php echo str_replace('前', '', $mansion["birthday"]->diffForHumans()); ?>
+            （<?php echo $mansion["birthday"]->format('Y年n月') ?>）
+          </dd>
         </div>
         <div class="detail-row">
-          <dt><span>階数</span></dt><dd class="half">ーーー</dd>
-          <dt><span>建築構造</span></dt><dd class="half">ーーー</dd>
+          <dt><span>階数</span></dt><dd class="half"><?php echo $mansion["floors"] ?>階</dd>
+          <dt><span>建築構造</span></dt><dd class="half"><?php echo $mansion["architecture"] ?></dd>
         </div>
         <div class="detail-row">
-          <dt><span>備考</span></dt><dd>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
-ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。
-ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。</dd>
+          <dt><span>備考</span></dt><dd><?php echo $mansion["note"] ?? 'ーーー' ?></dd>
         </div>
       </dl>
     </div>
@@ -70,8 +72,18 @@
 
   <?php require 'templates/banner.php'; ?>
 
-  <section style="padding-block: 200px; text-align: center;">
-  中村区のマンション売却相場の事例
+  <section class="mansion-policy">
+    <h3 class="section-h3 policy">弊社の売却価格に関する考え方</h3>
+    <div class="flexbox">
+      <div>
+        <h4>一般的な査定価格</h4>
+        <img src="../assets/img/Group 273.png" alt="">
+      </div>
+      <div>
+        <h4 class="our">弊社の特別査定価格</h4>
+        <img src="../assets/img/Group 274.png" alt="">
+      </div>
+    </div>
   </section>
 
   <section class="mansion-support">

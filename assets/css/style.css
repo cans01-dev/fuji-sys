@@ -572,8 +572,7 @@ footer .footer-inner .flexbox .footer-nav nav {
   justify-content: space-between;
   margin: 0 0 44px 0;
 }
-.search .search-form .flexbox .address,
-.search .search-form .flexbox .freeword {
+.search .search-form .flexbox div {
   height: 64px;
   background-color: #fff;
   border: 2px solid #D9D9D9;
@@ -582,17 +581,24 @@ footer .footer-inner .flexbox .footer-nav nav {
   display: flex;
   align-items: center;
 }
-.search .search-form .flexbox .address {
+.search .search-form .flexbox div input {
+  display: block;
+  width: 100%;
+}
+.search .search-form .flexbox div input:focus {
+  outline: none;
+}
+.search .search-form .flexbox div.address {
   width: calc(60% - 14px);
 }
-.search .search-form .flexbox .address label {
+.search .search-form .flexbox div.address label {
   word-break: keep-all;
   font-weight: 700;
   padding: 3px 12px 3px 0;
   margin: 0 12px 0 0;
   border-right: 1px solid #000;
 }
-.search .search-form .flexbox .freeword {
+.search .search-form .flexbox div.freeword {
   width: calc(40% - 14px);
 }
 .search .search-form .search-submit {
@@ -1457,6 +1463,38 @@ footer .footer-inner .flexbox .footer-nav nav {
   gap: 12px;
 }
 
+.mansion-policy {
+  padding-inline: calc((100% - 1360px) / 2);
+  padding-block: 88px;
+}
+.mansion-policy .section-h3.policy {
+  margin-bottom: 64px;
+}
+.mansion-policy .flexbox {
+  display: flex;
+  gap: 30px;
+}
+.mansion-policy .flexbox div {
+  flex: 50%;
+  position: relative;
+}
+.mansion-policy .flexbox div h4 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  font-weight: 700;
+}
+.mansion-policy .flexbox div h4.our {
+  color: #fff;
+  background-color: #FF7A00;
+  padding: 8px 16px;
+}
+.mansion-policy .flexbox div img {
+  width: 100%;
+}
+
 .mansion-support {
   padding-inline: calc((100% - 1360px) / 2);
   padding-block: 70px 85px;
@@ -1598,6 +1636,40 @@ footer .footer-inner .flexbox .footer-nav nav {
 }
 .mansion-around .around-aligncenter .around-wrapper .viewmore a {
   font-size: 20px;
+}
+
+.privacy-policy {
+  padding-inline: calc((100% - 1360px) / 2);
+  padding-block: 50px 80px;
+}
+.privacy-policy article {
+  margin-bottom: 20px;
+}
+.privacy-policy article.top {
+  margin-bottom: 32px;
+}
+.privacy-policy article h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.privacy-policy article .content {
+  font-size: 20px;
+  line-height: 150%;
+}
+.privacy-policy article .content ol {
+  padding-left: 1.5em;
+  counter-reset: item;
+}
+.privacy-policy article .content ol li {
+  position: relative;
+}
+.privacy-policy article .content ol li::before {
+  counter-increment: item;
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  transform: translateX(-1.25em);
 }
 
 #circularG {

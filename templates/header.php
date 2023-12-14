@@ -19,8 +19,8 @@
     <div class="flexbox-nav">
       <nav>
         <ul>
-          <li><a href="">マンション検索</a></li>
-          <li><a href="">マンション一覧</a></li>
+          <li><a href="/mansions">マンション検索</a></li>
+          <li><a href="/mansions">マンション一覧</a></li>
           <li><a href="">査定の流れ</a></li>
           <li><a href="">よくある質問</a></li>
         </ul>
