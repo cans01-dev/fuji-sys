@@ -68,7 +68,6 @@
     <div class="search-option buttom">
       <p class=""><?php echo $pgnt_stmt ?></p>
     </div>
-
     <div class="search-pagenation">
       <ul class="flex-list">
         <?php if ($pgnt["first"]): ?>

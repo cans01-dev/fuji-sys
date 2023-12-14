@@ -77,12 +77,24 @@ function mansion_index() {
         $order_sql = "";
     }
     
-    $mansions_count = $pdo->query("SELECT COUNT(*) FROM mansions")->fetchColumn();
+    if (isset($_GET["address"]) && !isset($_GET["freeword"])) {
+        $where_sql = "WHERE address LIKE '%{$_GET["address"]}%'";
+    } elseif (!isset($_GET["address"]) && isset($_GET["freeword"])) {
+        $where_sql = "WHERE CONCAT(address, access, IFNULL(note, '')) LIKE '%{$_GET["freeword"]}%'";
+    } elseif (isset($_GET["address"]) && isset($_GET["freeword"])) {
+        $where_sql = "WHERE address LIKE '%{$_GET["address"]}%' AND CONCAT(address, access, IFNULL(note, '')) LIKE '%{$_GET["freeword"]}%'";
+    } else {
+        $where_sql = "";
+    }
+
+    $mansions_count = $pdo->query("SELECT COUNT(*) FROM mansions $where_sql")->fetchColumn();
     $pgnt = get_page_numbers($limit, $mansions_count, $page);
     $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
-
-    $sql = "SELECT * FROM mansions $order_sql LIMIT $limit OFFSET {$pgnt["offset"]}";
+    
+    $sql = "SELECT * FROM mansions $where_sql $order_sql LIMIT $limit OFFSET {$pgnt["offset"]}";
     $mansions = $pdo->query($sql)->fetchAll();
+
+    // exit($sql);
     
     require_once 'pages/mansion_index.php';
 }

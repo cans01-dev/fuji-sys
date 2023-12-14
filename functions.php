@@ -16,15 +16,16 @@ function url_param_change($par=Array(),$op=0){
 function get_page_numbers($posts_par_page, $posts_sum, $page) {
   $first = 1;
   $last = ceil($posts_sum / $posts_par_page);
+  $offset = $posts_par_page * ($page - 1);
   return [
     "current" => $page,
     "prev" => $page - 1 < $first ? false : $page - 1,
     "next" => $page + 1 > $last ? false : $page + 1,
     "first" => $page - 2 < $first ? false : $first,
     "last" => $page + 2 > $last ? false : $last,
-    "offset" => $posts_par_page * ($page - 1),
-    "current_start" => $posts_par_page * ($page - 1) + 1,
-    "current_end" => $posts_par_page * ($page - 1) + $posts_par_page,
+    "offset" => $offset,
+    "current_start" => $offset + 1,
+    "current_end" => $posts_sum < $offset + $posts_par_page ? $posts_sum : $offset + $posts_par_page,
   ];
 }
 
