@@ -1,0 +1,44 @@
+@use '_reset.scss';
+@use 'config/fonts';
+@use '_base.scss';
+@use './pages/admin/mansion-index';
+@use './pages/admin/mansion-edit';
+
+@use './mixin' as *;
+@use './config/variables' as v;
+
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  background-color: v.$base-color;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 40px;
+  border-bottom: 1px solid v.$black;
+  .header-nav nav ul {
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+  }
+}
+
+main {
+  padding-top: 90px;
+}
+
+footer {
+  background-color: v.$black;
+  color: v.$white;
+  padding: 150px 280px;
+  .footer-icon {
+    margin-bottom: 64px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+}
+

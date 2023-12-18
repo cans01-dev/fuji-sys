@@ -209,3 +209,18 @@ footer {
       line-height: 150%;
     }
 }
+
+._404 {
+    padding-block: 240px;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    .subpage-h2 {
+        padding-top: 0;
+        margin-bottom: 40px;
+    }
+    p {
+        font-size: 24px;
+        font-weight: 700;
+    }
+}

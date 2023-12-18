@@ -10,10 +10,10 @@
   <div class="breadcrumb">
     <div>
       <p>
-        <a href="">TOP</a> 〉
-        <a href="">マンション検索</a> 〉
-        <a href="">マンション情報一覧</a> 〉
-        <a href=""><?php echo $mansion->title ?></a>
+        <a href="<?php echo url("/") ?>">TOP</a> 〉
+        <a href="<?php echo url("/mansions") ?>">マンション検索</a> 〉
+        <a href="<?php echo url("/mansions") ?>">マンション情報一覧</a> 〉
+        <a href="<?php echo url("/mansions/{$mansion->id}") ?>"><?php echo $mansion->title ?></a>
       </p>
     </div>
   </div>
@@ -32,7 +32,7 @@
       </div>
       <div class="comment">
         <h4>担当者コメント</h4>
-        <p><?php echo $mansion->comment ?? 'ーーー' ?></p>
+        <p><?php echo $mansion->get("comment", "ーーー") ?></p>
       </div>
     </div>
     <div class="mansion-detail">
@@ -44,19 +44,23 @@
           <dt><span>交通</span></dt><dd><?php echo $mansion->access ?></dd>
         </div>
         <div class="detail-row">
-          <dt><span>総戸数</span></dt><dd class="half"><?php echo $mansion->total_units ?>戸</dd>
+          <dt><span>総戸数</span></dt><dd class="half"><?php echo $mansion->get("total_units", "ーーー", "戸") ?></dd>
           <dt><span>築年数</span></dt>
           <dd class="half">
-            <?php echo str_replace('前', '', $mansion->birthday->diffForHumans()); ?>
-            （<?php echo $mansion->birthday->format('Y年n月') ?>）
+            <?php if ($mansion->birthday_set): ?>
+              <?php echo str_replace('前', '', $mansion->birthday->diffForHumans()); ?>
+              （<?php echo $mansion->birthday->format('Y年n月') ?>）
+            <?php else: ?>
+              ーーー
+            <?php endif; ?>
           </dd>
         </div>
         <div class="detail-row">
-          <dt><span>階数</span></dt><dd class="half"><?php echo $mansion->floors ?>階</dd>
-          <dt><span>建築構造</span></dt><dd class="half"><?php echo $mansion->architecture ?></dd>
+          <dt><span>階数</span></dt><dd class="half"><?php echo $mansion->get("floors", "ーーー") ?></dd>
+          <dt><span>建築構造</span></dt><dd class="half"><?php echo $mansion->get("architecture", "ーーー") ?></dd>
         </div>
         <div class="detail-row">
-          <dt><span>備考</span></dt><dd><?php echo $mansion->note ?? 'ーーー' ?></dd>
+          <dt><span>備考</span></dt><dd><?php echo $mansion->get("note", "ーーー") ?></dd>
         </div>
       </dl>
     </div>

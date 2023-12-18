@@ -1,6 +1,6 @@
 <?php
-require '../vendor/autoload.php';
-require '../dbconnect.php';
+require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../dbconnect.php';
 
 // $client = new Google\Client();
 // $client->setAuthConfig('C:\xampp\htdocs\projects\fuji-sys\dev\fuji-sys-38daa355c5b9.json');
@@ -12,12 +12,12 @@ require '../dbconnect.php';
 //   "alt" => "media"
 // ]);
 
-$pdo->query("DELETE FROM mansions; ALTER TABLE mansions auto_increment = 1;");
+$MyPDO->query("DELETE FROM mansions; ALTER TABLE mansions auto_increment = 1;");
 
 $fileIdArray = [];
 $f = fopen('C:\xampp\htdocs\projects\fuji-sys\dev\mansions.csv', 'r');
 
-$sql = "INSERT INTO mansions (title, address, access, total_units, birthday, floors, architecture, image_path, unit_price)
+$sql = "INSERT INTO mansions (title, address, access, total_units, birthday, birthday_set, floors, architecture, image_path, unit_price)
         VALUES ";
 
 while ($line = fgetcsv($f)) {
@@ -26,15 +26,16 @@ while ($line = fgetcsv($f)) {
   $access = $line[5];
   $total_units = $line[6];
   $birthday = date('Y-m-d', strtotime($line[9].'/1'));
+  $birthday_set = $line[9] !== "" ? 1 : 0 ;
   $floors = $line[7];
   $architecture = $line[8];
   $image_path = $line[13];
   $unit_price = $line[18];
 
-  echo var_dump(['title' => $title,'address' => $address,'access' => $access,'total_units' => $total_units,'birthday' => $birthday,'floors' => $floors,'architecture' => $architecture,'image_path' => $image_path,'unit_price' => $unit_price]);
+  echo var_dump(['title' => $title,'address' => $address,'access' => $access,'total_units' => $total_units,'birthday' => $birthday,'birthday_set' => $birthday_set,'floors' => $floors,'architecture' => $architecture,'image_path' => $image_path,'unit_price' => $unit_price]);
   echo "\n";
 
-  $sql .= "('$title', '$address', '$access', '$total_units', '$birthday', '$floors', '$architecture', '$image_path', '$unit_price'),";
+  $sql .= "('$title', '$address', '$access', '$total_units', '$birthday', '$birthday_set', '$floors', '$architecture', '$image_path', '$unit_price'),";
 
   // $url = $line[13];
   // if (filter_var($url, FILTER_VALIDATE_URL)) {
@@ -45,6 +46,6 @@ while ($line = fgetcsv($f)) {
 
 fclose($f);
 
-$pdo->query(rtrim($sql, ','));
+$MyPDO->query(rtrim($sql, ','));
 
 ?>

@@ -29,8 +29,20 @@ function get_page_numbers($posts_par_page, $posts_sum, $page) {
   ];
 }
 
-function to_class_object($mansion) {
-  return new Mansion($mansion);
+function to_class_object($result) {
+  $mansion =  new Mansion();
+  $mansion->setAll($result);
+  return $mansion;
+}
+
+function url($path = '') {
+  $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+  $url = $protocol . '://' . $_SERVER['HTTP_HOST'] . $path;
+  return $url;
+}
+
+function toastMeg($type, $msg) {
+  $_SESSION["toast_msg"] = ['type' => $type, 'msg' => $msg];
 }
 
 ?>

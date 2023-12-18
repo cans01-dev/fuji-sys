@@ -21,6 +21,9 @@ h1 {
 input::placeholder {
   color: v.$gray;
 }
+var {
+  font-style: initial;
+}
 
 .section-h2 {
   color: v.$base-font-color;
@@ -85,4 +88,13 @@ input::placeholder {
   font-weight: 700;
   border-left: 10px solid v.$black;
   margin-bottom: 44px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+::-ms-expand {
+  display: none;
 }

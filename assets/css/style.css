@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;600&display=swap");
 /*! destyle.css v4.0.0 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 /* Reset box-model and set borders */
 /* ============================================ */
@@ -203,8 +204,6 @@ input,
 optgroup,
 select,
 textarea {
-  -webkit-appearance: none; /* 1 */
-  appearance: none;
   vertical-align: middle;
   color: inherit;
   font: inherit;
@@ -395,6 +394,10 @@ input::placeholder {
   color: #D9D9D9;
 }
 
+var {
+  font-style: initial;
+}
+
 .section-h2 {
   color: #000;
   font-family: "Poppins", sans-serif;
@@ -458,6 +461,16 @@ input::placeholder {
   font-weight: 700;
   border-left: 10px solid #000;
   margin-bottom: 44px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-ms-expand {
+  display: none;
 }
 
 header {
@@ -661,6 +674,21 @@ footer .footer-inner .flexbox .footer-nav nav {
   font-size: 24px;
   font-weight: 600;
   line-height: 150%;
+}
+
+._404 {
+  padding-block: 240px;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+._404 .subpage-h2 {
+  padding-top: 0;
+  margin-bottom: 40px;
+}
+._404 p {
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .mainvisual-bg {

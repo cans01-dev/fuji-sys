@@ -24,6 +24,10 @@ class ComposerStaticInite69e44c33f47bbf346dab01e67ab6f02
         array (
             'phpseclib3\\' => 11,
         ),
+        'V' => 
+        array (
+            'Valitron\\' => 9,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -69,6 +73,10 @@ class ComposerStaticInite69e44c33f47bbf346dab01e67ab6f02
         'phpseclib3\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'Valitron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
