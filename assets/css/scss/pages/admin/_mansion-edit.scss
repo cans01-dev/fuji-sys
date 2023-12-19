@@ -101,6 +101,48 @@
       &.w-full {
         flex: 100%;
       }
+      &.img {
+        .item-body  {
+          ul {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            li {
+              flex: 25%;
+              background-color: #eee;
+              padding: 12px;
+              text-align: center;
+              &:first-child {
+                border: 4px solid v.$black;
+              }
+              img {
+                width: 100%;
+                aspect-ratio: 5/4;
+                object-fit: cover;
+                margin-bottom: 12px;
+              }
+              .img-controller {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input {
+                  display: none;
+                }
+                label {
+                  padding: 4px 24px;
+                  border-radius: 8px;
+                  background-color: #333;
+                  color: v.$white;
+                }
+                button {
+                  display: block;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
     }
     .flexbox {
       flex: 100%;

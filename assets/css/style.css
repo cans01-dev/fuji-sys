@@ -1356,6 +1356,9 @@ footer .footer-inner .flexbox .footer-nav nav {
 }
 .search-result .search-results .grid-list img {
   width: 100%;
+  aspect-ratio: 5/3;
+  border: 1px solid #000;
+  object-fit: cover;
 }
 .search-result .search-results .grid-list div {
   padding: 12px 20px;
@@ -1486,9 +1489,18 @@ footer .footer-inner .flexbox .footer-nav nav {
   width: calc(50% - 130px);
 }
 .mansion-info .mansion-gallery .grid-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.mansion-info .mansion-gallery .grid-list li {
+  flex: 25%;
+}
+.mansion-info .mansion-gallery .grid-list li img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border: 1px solid #000;
 }
 
 .mansion-policy {
@@ -1618,6 +1630,7 @@ footer .footer-inner .flexbox .footer-nav nav {
 }
 .mansion-flow .flow-wrapper .flex-list .flex-item .flow-content p {
   line-height: normal;
+  white-space: nowrap;
 }
 .mansion-flow .flow-wrapper .flex-list::before {
   content: "";

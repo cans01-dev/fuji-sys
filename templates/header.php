@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo getPageTitle(); ?></title>
+    <link rel="shortcut icon" href="/assets/img/icon.png" type="image/x-icon">
     <!-- css -->
     <link rel="stylesheet" href="/assets/css/style.css">
 <body>

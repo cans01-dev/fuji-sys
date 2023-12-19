@@ -1,20 +1,29 @@
-<?php require 'templates/header.php'; ?>
+<?php require 'templates/admin/header.php'; ?>
 <main>
-  <div class="_404">
+  <div class="login">
     <div>
       <img src="/assets/img/icon.png" alt="">
     </div>
     <div>
       <div class="subpage-h2">
         <div>
-          <h2 class="section-h2">404
-            <div><span></span><p>Not found</p></div>
+          <h2 class="section-h2">ログイン
+            <div><span></span><p>login</p></div>
           </h2>
         </div>
       </div>
-      <p>このページは削除されたか非公開に設定されています！！</p>
+      <form action="/admin/login" method="post">
+        <div>
+          <label for="">パスワード</label>
+          <input type="password" name="password">
+        </div>
+        <div class="submit">
+          <input type="submit" value="ログイン">
+        </div>
+      </form>
     </div>
   </div>
+
 </main>
 
-<?php require 'templates/footer.php'; ?>
+<?php require 'templates/admin/footer.php'; ?>

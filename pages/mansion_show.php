@@ -66,10 +66,22 @@
     </div>
     <div class="mansion-gallery">
       <ul class="grid-list">
-        <li class="grid-item"><img src="../assets/img/Rectangle 140.png" alt=""></li>
-        <li class="grid-item"><img src="../assets/img/Rectangle 140.png" alt=""></li>
-        <li class="grid-item"><img src="../assets/img/Rectangle 140.png" alt=""></li>
-        <li class="grid-item"><img src="../assets/img/Rectangle 140.png" alt=""></li>
+        <li class="grid-item">
+          <a href="<?php echo $mansion->getImageUrl("image1") ?>">
+            <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt=""></li>
+          </a>
+        <li class="grid-item">
+          <a href="<?php echo $mansion->getImageUrl("image2") ?>">
+            <img src="<?php echo $mansion->getImageUrl("image2") ?>" alt=""></li>
+          </a>
+        <li class="grid-item">
+          <a href="<?php echo $mansion->getImageUrl("image3") ?>">
+            <img src="<?php echo $mansion->getImageUrl("image3") ?>" alt=""></li>
+          </a>
+        <li class="grid-item">
+          <a href="<?php echo $mansion->getImageUrl("image4") ?>">
+            <img src="<?php echo $mansion->getImageUrl("image4") ?>" alt=""></li>
+          </a>
       </ul>
     </div>
   </section>
@@ -98,7 +110,7 @@
           <div><h3>infomation<span>豊富な情報</span></h3></div>
         </div>
         <div class="item-body">
-          <p>私たちは中村区の不動産情報に関して、誰よりも豊富な知識を有している自信があります。中村区は独自の特性や魅力を持つエリアであり、地域の不動産市場において綿密な調査と経験を積んできました。これまでの実績やクライアントとの密接な連携を通じて、中村区の不動産市場のトレンドや動向に精通しています。</p>
+          <p>私たちは中村区の不動産情報に関して、誰よりも豊富な知識を有している自信があります。これまでの実績やクライアントとの密接な連携を通じて、中村区の不動産市場のトレンドや動向に精通しています。</p>
         </div>
       </li>
       <li class="flex-item">
@@ -106,15 +118,15 @@
           <div><h3>expensive<span>高額買取</span></h3></div>
         </div>
         <div class="item-body">
-          <p>私たちは不動産の高額買取に関して、非常に強力なネットワークと経験豊富な専門家チームを有しています。お客様が満足いく取引を実現するために、市場の動向や詳細な査定プロセスにおいて深い理解を持っています。私たちはお客様とのコミュニケーションを大切にしながら、安心して不動産の売却を進めるお手伝いをいたします。</p>
+          <p>私たちは不動産の高値売却に関して、非常に強力なネットワークと経験豊富な専門家チームを有しています。また、リノベーション事業より培ったノウハウを売主にご提供し、高値売却を可能にしています。</p>
         </div>
       </li>
       <li class="flex-item">
         <div class="item-head">
-          <div><h3>speed<span>迅速な買取</span></h3></div>
+          <div><h3>WARRANTY<span>売却保証</span></h3></div>
         </div>
         <div class="item-body">
-          <p>私たちはお客様の大切な時間を尊重し、どこよりも素早い不動産の買取サービスを提供することに誇りを持っています。急な状況やスケジュールの都合に対応することは非常に重要です。私たちはこれまでの経験を通じて、スピーディかつ効率的なプロセスを確立しています。</p>
+          <p>売却を開始されて一定期間成約に至らなかった場合に、事前にお約束した「売却金額」にて弊社が物件を買い取らせていただきます。売却時期が決まっている方におすすめです。</p>
         </div>
       </li>
     </ul>

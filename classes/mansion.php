@@ -7,8 +7,8 @@ Carbon::setLocale('ja');
 
 class Mansion
 {
-  public  $id, $title, $unit_price, $comment, $address, $access, $total_units,
-          $birthday, $birthday_set, $floors, $architecture, $note, $created_at, $private;
+  public  $id, $title, $unit_price, $comment, $address, $access, $total_units, $birthday, $birthday_set,
+          $floors, $architecture, $note, $created_at, $private, $image1, $image2, $image3, $image4;
 
   function __construct()
   {
@@ -17,6 +17,14 @@ class Mansion
 
   function get($var_name, $alter, $suffix="") {
     return $this->$var_name == "" || $this->$var_name == 0 ? $alter : $this->$var_name . $suffix;
+  }
+
+  function getImageUrl($name) {
+    if ($this->$name) {
+      return url("/uploads/img/{$this->$name}");
+    } else {
+      return url("/assets/img/no-image.png");
+    }
   }
 
   function setAll($mansion, $full=true)
@@ -33,6 +41,10 @@ class Mansion
     $this->architecture = $mansion["architecture"];
     $this->note = $mansion["note"];
     $this->private = $mansion["private"];
+    $this->image1 = $mansion["image1"];
+    $this->image2 = $mansion["image2"];
+    $this->image3 = $mansion["image3"];
+    $this->image4 = $mansion["image4"];
     if ($full) {
       $this->id = $mansion["id"];
       $this->created_at = new Carbon($mansion["created_at"]);
@@ -42,9 +54,16 @@ class Mansion
   function create()
   {
     global $MyPDO;
-    $sql = "INSERT INTO mansions (title, unit_price, comment, address, access, total_units, birthday, birthday_set, floors, architecture, note, private)
-            VALUES  ('$this->title', '$this->unit_price', '$this->comment', '$this->address', '$this->access', '$this->total_units',
-                     '$this->birthday', '$this->birthday_set', '$this->floors', '$this->architecture', '$this->note', '$this->private)";
+    $sql = "INSERT INTO mansions (
+              title, unit_price, comment, address, access, total_units, birthday,
+              birthday_set, floors, architecture, note, private, image1, image2, image3, image4
+            )
+            VALUES (
+              '$this->title', '$this->unit_price', '$this->comment', '$this->address',
+              '$this->access', '$this->total_units','$this->birthday', '$this->birthday_set',
+              '$this->floors', '$this->architecture', '$this->note', '$this->private',
+              '$this->image1', '$this->image2', '$this->image3', '$this->image4'
+            )";
     $MyPDO->query($sql);
 
     return $MyPDO->lastInsertId();
@@ -65,7 +84,11 @@ class Mansion
                 floors = '$this->floors',
                 architecture = '$this->architecture',
                 note = '$this->note',
-                private = '$this->private'
+                private = '$this->private',
+                image1 = '$this->image1',
+                image2 = '$this->image2',
+                image3 = '$this->image3',
+                image4 = '$this->image4'
             WHERE id = $this->id";
     return $MyPDO->query($sql);
   }

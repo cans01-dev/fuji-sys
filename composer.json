@@ -4,6 +4,7 @@
         "smarty/smarty": "^4.3",
         "google/apiclient": "^2.15",
         "nesbot/carbon": "^2.72",
-        "vlucas/valitron": "^1.4"
+        "vlucas/valitron": "^1.4",
+        "ramsey/uuid": "^4.7"
     }
 }

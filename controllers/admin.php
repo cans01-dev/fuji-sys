@@ -1,16 +1,14 @@
 <?php 
 
 use Carbon\Carbon;
+use Ramsey\Uuid\Nonstandard\Uuid;
 use Valitron\Validator;
 
 Validator::lang('ja');  
 
-function admin_index() {
-  require_once 'pages/admin/index.php';
-}
-
 function admin_mansions_index() {
   global $MyPDO, $toast_msg;
+  adminAuth();
   
   $limit = $_GET["limit"] ?? 20;
   $page = $_GET["page"] ?? 1;
@@ -29,33 +27,32 @@ function admin_mansions_index() {
 }
 
 function admin_mansions_create() {
-  global $httpMethod;
+  global $httpMethod, $toast_msg, $err_meg;
+  adminAuth();
 
+  # 初期値の指定
   $mansion = new Mansion();
   $mansion->birthday = new Carbon();
   $mansion->birthday_set = 0;
+  $mansion->private = 0;
   
-  if ($httpMethod === 'POST') {
-    $mansion->setAll($_POST, false);
-    $err_meg = $_SESSION["err_msg"];
-    unset($_SESSION["err_msg"]);
-  }
-
   require_once 'pages/admin/mansion_create.php';
 }
 
 function admin_mansions_store() {
   global $MyPDO;
+  adminAuth();
 
   $v = new Validator($_POST);  
   $v->labels(['title' => 'マンション名', 'unit_price' => '坪単価', 'address' => '所在地', 'access' => '交通アクセス']);
   $v->rule('required', ['title', 'unit_price', 'address', 'access'])->message('{field}は必須項目です'); 
 
   if(!$v->validate()) {
-      $_SESSION["err_msg"] = $v->errors();
-      $url = url("/admin/mansions/create");
-      header("Location: $url", true, 307);
-      exit();
+    toastMeg("error", "登録できませんでした");
+    $_SESSION["err_msg"] = $v->errors();
+    $url = url("/admin/mansions/create");
+    header("Location: $url");
+    exit();
   }
 
   $mansion = new Mansion();
@@ -72,15 +69,24 @@ function admin_mansions_store() {
   $mansion->note = $_POST["note"];
   $mansion->private = $_POST["private"];
 
-  $created_id = $mansion->create();
+  foreach (["image1", "image2", "image3", "image4"] as $name) {
+    $image = $_FILES[$name];
+    if (!empty($image["name"])) {
+      $filename = Uuid::uuid4() . strrchr($image["name"], ".");
+      move_uploaded_file($image["tmp_name"], "./uploads/img/" . $filename);
+      $mansion->$name = $filename;
+    }
+  }
 
+  $created_id = $mansion->create();
   $url = url("/admin/mansions/{$created_id}/edit");
   header("Location: $url");
   exit;
 }
 
 function admin_mansions_edit($vars) {
-  global $MyPDO, $httpMethod, $toast_msg;
+  global $MyPDO, $httpMethod, $toast_msg, $err_meg;
+  adminAuth();
 
   if (!$result = $MyPDO->getMansionById($vars["id"], includePrivete: true)) {
     require_once './404.php';
@@ -89,22 +95,12 @@ function admin_mansions_edit($vars) {
   $mansion = new Mansion();
   $mansion->setAll($result);
 
-  if ($httpMethod === 'GET') {
-    unset($_SESSION["err_msg"]);
-  } elseif ($httpMethod === 'PUT') {
-    $mansion->setAll($_POST, false);
-    $err_meg = $_SESSION["err_msg"];
-  }
   require_once 'pages/admin/mansion_edit.php';
 }
 
 function admin_mansions_update($vars) {
   global $MyPDO;
-
-  $result = $MyPDO->getMansionById($vars["id"], includePrivete: true);
-
-  $mansion = new Mansion();
-  $mansion->setAll($result);
+  adminAuth();
 
   $v = new Validator($_POST);  
   $v->labels(['title' => 'マンション名', 'unit_price' => '坪単価', 'address' => '所在地', 'access' => '交通アクセス']);
@@ -115,9 +111,13 @@ function admin_mansions_update($vars) {
     toastMeg("error", "更新できませんでした");
     $_SESSION["err_msg"] = $v->errors();
     $url = url("/admin/mansions/$mansion_id/edit");
-    header("Location: $url", true, 307);
+    header("Location: $url");
     exit();
   }
+
+  $result = $MyPDO->getMansionById($vars["id"], includePrivete: true);
+  $mansion = new Mansion();
+  $mansion->setAll($result);
 
   $mansion->title = $_POST["title"];
   $mansion->unit_price = $_POST["unit_price"];
@@ -131,8 +131,20 @@ function admin_mansions_update($vars) {
   $mansion->architecture = $_POST["architecture"];
   $mansion->note = $_POST["note"];
   $mansion->private = $_POST["private"];
-  $mansion->save();
+  
+  foreach ([1, 2, 3, 4] as $id) {
+    $name = "image{$id}";
+    $image = $_FILES[$name];
+    if (!empty($image["name"])) {
+      $filename = Uuid::uuid4() . strrchr($image["name"], ".");
+      move_uploaded_file($image["tmp_name"], "./uploads/img/" . $filename);
+      $mansion->$name = $filename;
+    } elseif ($_POST["imageClear{$id}"] == "1") {
+      $mansion->$name = "";
+    }
+  }
 
+  $mansion->save();
   toastMeg("success", "{$mansion->title}を更新しました");
   $url = url("/admin/mansions/{$mansion->id}/edit");
   header("Location: $url");
@@ -141,6 +153,7 @@ function admin_mansions_update($vars) {
 
 function admin_mansions_delete($vars) {
   global $MyPDO;
+  adminAuth();
 
   $result = $MyPDO->getMansionById($vars["id"], includePrivete: true);
 
@@ -155,7 +168,36 @@ function admin_mansions_delete($vars) {
 }
 
 function admin_login_get() {
-  // require_once '';
+  global $toast_msg;
+
+  require_once './login.php';
+}
+
+function admin_login_post() {
+  $password = $_POST["password"];
+  if (password_verify($password, ADMIN_PASSWORD)) {
+    $_SESSION["admin"] = "admin";
+    toastMeg("success", "管理画面にログインしました");
+    $url = url("/admin/mansions");
+    header("Location: $url");
+    exit;
+  } else {
+    toastMeg("error", "パスワードが違います");
+    $url = url("/admin/login");
+    header("Location: $url");
+    exit;
+  }
+}
+
+function admin_logout() {
+  $_SESSION = array();
+  session_destroy();
+
+  session_start();
+  toastMeg("success", "管理画面からログアウトしました");
+  $url = url("/admin/login");
+  header("Location: $url");
+  exit;
 }
 
 ?>

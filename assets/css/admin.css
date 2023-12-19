@@ -552,8 +552,11 @@ select {
   display: flex;
   padding-block: 12px;
 }
-.admin-mansions .search-results .mansion-list .mansion-item .item-icon {
-  flex: 200px;
+.admin-mansions .search-results .mansion-list .mansion-item .item-icon img {
+  width: 360px;
+  height: 240px;
+  object-fit: cover;
+  border: 1px solid #000;
 }
 .admin-mansions .search-results .mansion-list .mansion-item .item-content {
   flex: calc(100% - 480px);
@@ -744,6 +747,44 @@ select {
 .admin-mansions-edit .admin-mansion-form .field-item.w-full {
   flex: 100%;
 }
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li {
+  flex: 25%;
+  background-color: #eee;
+  padding: 12px;
+  text-align: center;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li:first-child {
+  border: 4px solid #000;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller input {
+  display: none;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller label {
+  padding: 4px 24px;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller button {
+  display: block;
+  text-decoration: underline;
+}
 .admin-mansions-edit .admin-mansion-form .flexbox {
   flex: 100%;
   display: flex;
@@ -788,6 +829,44 @@ select {
   font-weight: 700;
 }
 
+.login {
+  padding-block: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+.login div .subpage-h2 {
+  padding-top: 0;
+  margin-bottom: 40px;
+  width: 600px;
+}
+.login div div {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+.login div div label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.login div div input[type=password] {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #000;
+}
+.login div .submit {
+  text-align: right;
+}
+.login div .submit input[type=submit] {
+  display: inline-block;
+  background-color: #FF7A00;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 20px;
+}
+
 header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -802,8 +881,15 @@ header {
 }
 header .header-nav nav ul {
   display: flex;
+  align-items: center;
   gap: 50px;
   font-size: 20px;
+}
+header .header-nav nav ul li.logout button {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid #000;
+  border-radius: 12px;
 }
 
 main {

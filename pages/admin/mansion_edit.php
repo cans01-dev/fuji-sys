@@ -19,16 +19,16 @@
         <span>マンションID: </span>
         <?php echo $mansion->id ?>
         <span>公開URL: </span>
-        <a href="<?php echo url("/mansions/{$mansion->id}") ?>">
+        <a href="<?php echo url("/mansions/{$mansion->id}") ?>" target="_blank">
           <?php echo url("/mansions/{$mansion->id}") ?>
         </a>
       </p>
     </div>
-    <form action="/admin/mansions/<?php echo $mansion->id ?>" method="post">
+    <form action="/admin/mansions/<?php echo $mansion->id ?>" method="post" enctype="multipart/form-data">
       <?php require 'templates/admin/parts/mansion_form.php' ?>
       <div class="admin-mansion-footer">
         <input type="hidden" name="_method" value="PUT">
-        <button type="button" onclick="submit()"><span>更新</span></button>
+        <button type="button" onclick="submitOnClick()"><span>更新</span></button>
       </div>
     </form>
   </div>

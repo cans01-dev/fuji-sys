@@ -1,0 +1,41 @@
+@use '../../config/variables' as v;
+
+.login {
+  padding-block: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  div {
+    .subpage-h2 {
+      padding-top: 0;
+      margin-bottom: 40px;
+      width: 600px;
+    }
+    div {
+      font-size: 24px;
+      margin-bottom: 18px;
+      label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      input[type='password'] {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid v.$black;
+      }
+    }
+    .submit {
+      text-align: right;
+      input[type='submit'] {
+        display: inline-block;
+        background-color: v.$base-btn-color;
+        color: v.$white;
+        padding: 12px 24px;
+        font-size: 20px;
+      }
+    }
+  }
+}

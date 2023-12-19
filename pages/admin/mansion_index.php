@@ -55,7 +55,7 @@
         <?php foreach ($mansions as $mansion): ?>
           <li class="mansion-item">
             <div class="item-icon">
-              <img src="../assets/img/Rectangle 140.png" alt="">
+              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
             </div>
             <div class="item-content">
               <h4>
@@ -109,7 +109,7 @@
                 <a class="edit" href="/admin/mansions/<?php echo $mansion->id ?>/edit"><span>編集</span></a>
               </div>
               <div>
-                <a class="show" href="/mansions/<?php echo $mansion->id ?>"><span>公開ページ</span></a>
+                <a class="show" href="/mansions/<?php echo $mansion->id ?>" target="_blank"><span>公開ページ</span></a>
               </div>
               <div>
                 <form action="/admin/mansions/<?php echo $mansion->id ?>" method="post" onsubmit="return window.confirm('本当に削除しますか？');">

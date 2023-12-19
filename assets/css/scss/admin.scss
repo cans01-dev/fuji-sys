@@ -3,6 +3,7 @@
 @use '_base.scss';
 @use './pages/admin/mansion-index';
 @use './pages/admin/mansion-edit';
+@use './pages/admin/login';
 
 @use './mixin' as *;
 @use './config/variables' as v;
@@ -21,8 +22,15 @@ header {
   border-bottom: 1px solid v.$black;
   .header-nav nav ul {
     display: flex;
+    align-items: center;
     gap: 50px;
     font-size: 20px;
+    li.logout button {
+      display: block;
+      padding: 12px 16px;
+      border: 1px solid v.$black;
+      border-radius: 12px;
+    }
   }
 }
 

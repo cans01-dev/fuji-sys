@@ -45,4 +45,25 @@ function toastMeg($type, $msg) {
   $_SESSION["toast_msg"] = ['type' => $type, 'msg' => $msg];
 }
 
+function adminAuth() {
+  if (isset($_SESSION["admin"])) {
+    return true;
+  } else {
+    toastMeg("warning", "ログインしてください");
+    $url = url("/admin/login");
+    header("Location: $url");
+    exit;
+  }
+}
+
+function getPageTitle() {
+  global $pageTitle;
+  return "フジハウジング｜$pageTitle";
+}
+
+function setPageTitle($str) {
+  global $pageTitle;
+  $pageTitle = $str;
+}
+
 ?>

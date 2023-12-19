@@ -78,8 +78,11 @@
       .mansion-item {
         display: flex;
         padding-block: 12px;
-        .item-icon {
-          flex: 200px;
+        .item-icon img {
+          width: 360px;
+          height: 240px;
+          object-fit: cover;
+          border: 1px solid v.$black;
         }
         .item-content {
           flex: calc(100% - 480px);

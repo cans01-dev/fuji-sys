@@ -1,14 +1,17 @@
 <?php 
 
 function index() {
+  setPageTitle('トップ');
   require_once 'pages/top.php';
 }
 
 function contact() {
+  setPageTitle('お問い合わせ');
   require_once 'pages/contact.php';
 }
 
 function privacy_policy() {
+  setPageTitle('プライバシーポリシー');
   require_once 'pages/privacy_policy.php';
 }
 
@@ -28,6 +31,7 @@ function mansions_index() {
   $mansions = $MyPDO->getMansions($address, $freeword, $order, $limit, $offset);
   $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
   
+  setPageTitle('マンション一覧');
   require_once 'pages/mansion_index.php';
 }
 
@@ -41,6 +45,7 @@ function mansions_show($vars) {
   $mansion = new Mansion();
   $mansion->setAll($result);
   
+  setPageTitle($mansion->title);
   require_once 'pages/mansion_show.php';
 }
 

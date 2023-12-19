@@ -17,21 +17,12 @@
         <span>新規登録</span>
       </p>
     </div>
-    <form action="/admin/mansions" method="post">
+    <form action="/admin/mansions" method="post" enctype="multipart/form-data">
       <?php require 'templates/admin/parts/mansion_form.php' ?>
       <div class="admin-mansion-footer">
-        <button class="create" type="button" onclick="createOnClick()"><span>新規登録</span></button>
+        <button class="create" type="button" onclick="submitOnClick(true)"><span>新規登録</span></button>
       </div>
     </form>
   </div>
 </main>
-<script defer>
-  const input = document.getElementById('mansionTitle');
-  function createOnClick() {
-    if (window.confirm(input.value + 'を作成しますか？')) {
-      document.forms[0].submit();
-    }
-  }
-</script>
-
 <?php require 'templates/admin/footer.php' ?>

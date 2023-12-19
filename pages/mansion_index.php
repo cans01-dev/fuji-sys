@@ -56,7 +56,7 @@
         <?php foreach ($mansions as $mansion): ?>
           <li class="grid-item">
             <a href="/mansions/<?php echo $mansion->id ?>">
-              <img src="../assets/img/Rectangle 140.png" alt="">
+              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
               <div>
                 <p><?php echo $mansion->title ?></p>
               </div>

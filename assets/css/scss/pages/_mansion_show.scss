@@ -79,9 +79,18 @@
     }
   }
   .mansion-gallery .grid-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    li {
+      flex: 25%;
+      img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        border: 1px solid v.$black
+      }
+    }
   }
 }
 
@@ -207,6 +216,7 @@
           }
           p {
             line-height: normal;
+            white-space: nowrap;
           }
         }
       }
