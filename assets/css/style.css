@@ -1667,6 +1667,9 @@ footer .footer-inner .flexbox .footer-nav nav {
 }
 .mansion-around .around-aligncenter .around-wrapper .flex-list .flex-item img {
   width: 100%;
+  aspect-ratio: 5/3;
+  object-fit: cover;
+  margin-bottom: 8px;
 }
 .mansion-around .around-aligncenter .around-wrapper .flex-list .flex-item p {
   font-size: 18px;

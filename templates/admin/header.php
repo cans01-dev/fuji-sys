@@ -29,6 +29,7 @@
   <div class="header-nav">
     <nav>
       <ul>
+        <li><a href="<?php echo url("/") ?>" target="_blank">公開ページ</a></li>
         <li><a href="<?php echo url("/admin/mansions") ?>">マンション一覧</a></li>
         <li><a href="<?php echo url("/admin/mansions/create") ?>">マンション新規登録</a></li>
         <?php if (isset($_SESSION["admin"])): ?>

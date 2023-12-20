@@ -613,6 +613,10 @@ select {
 .admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a.show {
   background-color: skyblue;
 }
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a.show.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 .admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a span {
   font-size: 20px;
   font-weight: 700px;
@@ -884,6 +888,9 @@ header .header-nav nav ul {
   align-items: center;
   gap: 50px;
   font-size: 20px;
+}
+header .header-nav nav ul li {
+  letter-spacing: 1px;
 }
 header .header-nav nav ul li.logout button {
   display: block;

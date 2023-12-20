@@ -135,6 +135,10 @@
               background-color: lightgreen;
               &.show {
                 background-color: skyblue;
+                &.disabled {
+                  pointer-events: none;
+                  opacity: 0.5;
+                }
               }
               span {
                 font-size: 20px;

@@ -114,6 +114,7 @@
 
   <?php require 'templates/line.php'; ?>
 </main>
+<script src="../assets/script/clean_query.js" defer></script>
 <script src="../assets/script/search.js" defer></script>
 
 <?php require 'templates/footer.php'; ?>

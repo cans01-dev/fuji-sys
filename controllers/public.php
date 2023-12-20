@@ -1,6 +1,10 @@
 <?php 
 
 function index() {
+  global $MyPDO;
+
+  $mansions = $MyPDO->getMansions(null, null, 'random', 6);
+
   setPageTitle('トップ');
   require_once 'pages/top.php';
 }
@@ -38,12 +42,12 @@ function mansions_index() {
 function mansions_show($vars) {
   global $MyPDO;
 
-  if (!$result = $MyPDO->getMansionById($vars["id"])) {
+  if (!$mansion = $MyPDO->getMansionById($vars["id"])) {
     require_once './404.php';
     return;
   }
-  $mansion = new Mansion();
-  $mansion->setAll($result);
+  
+  $mansions = $MyPDO->getMansions(null, null, 'random', 3);
   
   setPageTitle($mansion->title);
   require_once 'pages/mansion_show.php';

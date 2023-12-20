@@ -202,21 +202,15 @@
       <div class="around-wrapper">
         <p>中村区の他のマンションから探す</p>
         <ul class="flex-list">
-          <li class="flex-item">
-            <img src="../assets/img/Rectangle 159.png" alt="">
-            <p>マンション名マンション名</p>
-          </li>
-          <li class="flex-item">
-            <img src="../assets/img/Rectangle 159.png" alt="">
-            <p>マンション名マンション名</p>
-          </li>
-          <li class="flex-item">
-            <img src="../assets/img/Rectangle 159.png" alt="">
-            <p>マンション名マンション名</p>
-          </li>
+          <?php foreach ($mansions as $mansion): ?>
+            <li class="flex-item">
+              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
+              <p><?php echo $mansion->title ?></p>
+            </li>
+          <?php endforeach; ?>
         </ul>
         <div class="viewmore">
-          <a href="">view more</a>
+          <a href="<?php echo url("/mansions?order={$order}") ?>">view more</a>
         </div>
       </div>
     </div>

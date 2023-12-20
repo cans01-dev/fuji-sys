@@ -79,33 +79,15 @@
       <div><span></span><p>物件事例</p></div>
     </h2>
     <ul class="grid-list">
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
-      <li class="grid-item">
-        <img src="../assets/img/mansion2.jpg" alt="">
-        <a href="">More</a>
-      </li>
+      <?php foreach ($mansions as $mansion): ?>
+        <li class="grid-item">
+          <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
+          <a href="<?php echo url("/mansions/{$mansion->id}") ?>">More</a>
+        </li>
+      <?php endforeach; ?>
     </ul>
     <div class="viewallarchives">
-      <a href=""><span>View All Archives</span></a>
+      <a href="<?php echo url("/mansions") ?>"><span>View All Archives</span></a>
     </div>
   </section>
 

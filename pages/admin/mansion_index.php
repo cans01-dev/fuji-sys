@@ -109,7 +109,9 @@
                 <a class="edit" href="/admin/mansions/<?php echo $mansion->id ?>/edit"><span>編集</span></a>
               </div>
               <div>
-                <a class="show" href="/mansions/<?php echo $mansion->id ?>" target="_blank"><span>公開ページ</span></a>
+                <a class="show <?php if ($mansion->private) echo "disabled"; ?>" href="/mansions/<?php echo $mansion->id ?>" target="_blank">
+                  <span>公開ページ</span>
+                </a>
               </div>
               <div>
                 <form action="/admin/mansions/<?php echo $mansion->id ?>" method="post" onsubmit="return window.confirm('本当に削除しますか？');">

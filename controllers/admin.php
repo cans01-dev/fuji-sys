@@ -69,12 +69,15 @@ function admin_mansions_store() {
   $mansion->note = $_POST["note"];
   $mansion->private = $_POST["private"];
 
-  foreach (["image1", "image2", "image3", "image4"] as $name) {
+  foreach ([1, 2, 3, 4] as $id) {
+    $name = "image{$id}";
     $image = $_FILES[$name];
     if (!empty($image["name"])) {
       $filename = Uuid::uuid4() . strrchr($image["name"], ".");
       move_uploaded_file($image["tmp_name"], "./uploads/img/" . $filename);
       $mansion->$name = $filename;
+    } elseif ($_POST["imageClear{$id}"] == "1") {
+      $mansion->$name = "";
     }
   }
 
@@ -88,12 +91,10 @@ function admin_mansions_edit($vars) {
   global $MyPDO, $httpMethod, $toast_msg, $err_meg;
   adminAuth();
 
-  if (!$result = $MyPDO->getMansionById($vars["id"], includePrivete: true)) {
+  if (!$mansion = $MyPDO->getMansionById($vars["id"], includePrivete: true)) {
     require_once './404.php';
     return;
   }
-  $mansion = new Mansion();
-  $mansion->setAll($result);
 
   require_once 'pages/admin/mansion_edit.php';
 }
@@ -115,9 +116,7 @@ function admin_mansions_update($vars) {
     exit();
   }
 
-  $result = $MyPDO->getMansionById($vars["id"], includePrivete: true);
-  $mansion = new Mansion();
-  $mansion->setAll($result);
+  $mansion = $MyPDO->getMansionById($vars["id"], includePrivete: true);
 
   $mansion->title = $_POST["title"];
   $mansion->unit_price = $_POST["unit_price"];
@@ -155,10 +154,8 @@ function admin_mansions_delete($vars) {
   global $MyPDO;
   adminAuth();
 
-  $result = $MyPDO->getMansionById($vars["id"], includePrivete: true);
+  $mansion = $MyPDO->getMansionById($vars["id"], includePrivete: true);
 
-  $mansion = new Mansion();
-  $mansion->setAll($result);
   $mansion->delete();
 
   toastMeg("success", "{$mansion->title}を削除しました");

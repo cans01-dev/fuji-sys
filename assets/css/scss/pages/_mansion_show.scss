@@ -255,6 +255,9 @@
           border: 1px solid v.$black;
           img {
             width: 100%;
+            aspect-ratio: 5/3;
+            object-fit: cover;
+            margin-bottom: 8px;
           }
           p {
             font-size: 18px;

@@ -25,11 +25,14 @@ header {
     align-items: center;
     gap: 50px;
     font-size: 20px;
-    li.logout button {
-      display: block;
-      padding: 12px 16px;
-      border: 1px solid v.$black;
-      border-radius: 12px;
+    li {
+      letter-spacing: 1px;
+      &.logout button {
+        display: block;
+        padding: 12px 16px;
+        border: 1px solid v.$black;
+        border-radius: 12px;
+      }
     }
   }
 }

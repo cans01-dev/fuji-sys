@@ -11,6 +11,8 @@ class MyPDO extends PDO
       $order_sql = "ORDER BY unit_price";
     } elseif ($order == "price-desc") {
       $order_sql = "ORDER BY unit_price DESC";
+    } elseif ($order == "random") {
+      $order_sql = "ORDER BY RAND()";
     } else {
       $order_sql = "";
     }
@@ -36,7 +38,13 @@ class MyPDO extends PDO
   function getMansionById($id, $includePrivete=false) {
     $private = $includePrivete ? "(0, 1)" : "(0)";
     $sql = "SELECT * FROM mansions WHERE id = $id AND private IN $private";
-    return self::query($sql)->fetch();
+    if ($result = self::query($sql)->fetch()) {
+      $mansion = new Mansion();
+      $mansion->setAll($result);
+      return $mansion;
+    } else {
+      return false;
+    }
   }
 }
 
