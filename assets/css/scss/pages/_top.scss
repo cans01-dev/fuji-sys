@@ -1,0 +1,635 @@
+@use "../config/variables" as v;
+@use "../mixin" as *;
+
+.mainvisual-bg {
+  background-image: url(../img/bg-black.png);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mainvisual {
+  padding: 90px 140px 0;
+  color: #000000;
+  background-color: rgba($color: #fff, $alpha: 0.85);
+  @include w1440 {
+    padding: 48px 100px 0;
+  }
+  @include w991 {
+    padding: 48px 8% 0;
+  }
+  @include w599 {
+    padding: 48px 6% 0;
+  }
+  .mainvisual-catchcopy {
+    font-size: 62px;
+    font-weight: 700;
+    color: v.$sub-font-color;
+    @include w1700 {
+      font-size: 50px;
+    }
+    @include w1440 {
+      font-size: 42px;
+    }
+    @include w1200 {
+      font-size: 32px;
+    }
+    @include w991 {
+      font-size: 26px;
+    }
+    @include w768 {
+      font-size: 22px;
+    }
+    @include w599 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+  }
+  h1 {
+    font-size: 128px;
+    font-weight: 900;
+    margin-bottom: 90px;
+    @include w1700 {
+      font-size: 108px;
+    }
+    @include w1440 {
+      font-size: 92px;
+      margin-bottom: 48px;
+    }
+    @include w1200 {
+      font-size: 72px;
+    }
+    @include w991 {
+      font-size: 56px;
+    }
+    @include w768 {
+      font-size: 48px;
+    }
+    span {
+      @include w599 {
+        font-size: 28px;
+      }
+    }
+  }
+  .flexbox {
+    display: flex;
+    justify-content: space-between;
+    @include w1200 {
+      flex-direction: column-reverse;
+    }
+    .our-mission {
+      font-family: v.$sub-font;
+      font-size: 24px;
+      font-weight: 600;
+      position: relative;
+      overflow-y: hidden;
+      @include w1200 {
+        margin: 0 auto;
+        padding-bottom: 140px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        width: 1px;
+        height: 999px;
+        background-color: #000000;
+        z-index: 0;
+        @include w1200 {
+          top: 40px;
+        }
+      }
+    }
+    .mainvisual-content {
+      font-weight: 700;
+      width: 850px;
+      padding-bottom: 70px;
+      @include w1200 {
+        width: 100%;
+      }
+      h3 {
+        font-size: 36px;
+        margin-bottom: 24px;
+        @include w1200 {
+          font-size: 34px;
+        }
+        @include w991 {
+          font-size: 28px;
+        }
+        @include w768 {
+          font-size: 26px;
+        }
+        @include w599 {
+          font-size: 24px;
+        }
+      }
+      p {
+        font-size: 20px;
+        margin-bottom: 48px;
+        @include w1440 {
+          font-size: 18px;
+        }
+        @include w991 {
+          font-size: 16px;
+        }
+        @include w599 {
+          margin-bottom: 34px;
+        }
+      }
+      .mainvisual-contact a {
+        width: 100%;
+        height: 80px;
+        display: grid;
+        place-items: center;
+        background-color: v.$base-btn-color;
+        color: v.$base-link-color;
+        font-family: v.$sub-font;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.about {
+  // padding-left: (calc((100% - 1360px) / 2));
+  padding: 0 8%;
+  padding-block: 150px 200px;
+  @include w1400 {
+    padding-block: 100px 100px;
+  }
+  .about-icon {
+    margin-bottom: 125px;
+    display: flex;
+    justify-content: center;
+    @include w599 {
+      margin-bottom: 80px;
+    }
+    img {
+      max-width: 495px;
+      width: 80%;
+    }
+  }
+  h2 {
+    margin-bottom: 36px;
+    @include w599 {
+      margin-bottom: 24px;
+    }
+  }
+  .flexbox {
+    border-top: 1px solid v.$black;
+    padding-top: 100px;
+    display: flex;
+    @include w1400 {
+      flex-direction: column-reverse;
+    }
+    @include w1200 {
+      padding-top: 80px;
+    }
+    @include w599 {
+      padding-top: 60px;
+    }
+    .about-content {
+      flex: 50%;
+      padding: 0 100px 0 0;
+      @include w1400 {
+        padding: 0;
+      }
+      h3 {
+        color: v.$white;
+        background-color: v.$black;
+        margin-bottom: 48px;
+        width: fit-content;
+        padding: 8px 24px 12px 24px;
+        font-size: 32px;
+        font-weight: 900;
+        @include w1440 {
+          margin-bottom: 36px;
+          font-size: 28px;
+        }
+        @include w1400 {
+          margin-bottom: 24px;
+        }
+        @include w599 {
+          font-size: 26px;
+          padding: 8px 20px 10px 20px;
+        }
+        span {
+          color: v.$sub-font-color;
+        }
+      }
+      > p {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 175%;
+        margin-bottom: 64px;
+        @include w1440 {
+          font-size: 18px;
+          margin-bottom: 42px;
+        }
+        @include w1400 {
+          margin-bottom: 32px;
+        }
+        @include w991 {
+          font-size: 16px;
+        }
+      }
+      .about-contact a {
+        width: 240px;
+        height: 64px;
+        border-radius: 32px;
+        background-color: v.$base-btn-color;
+        display: grid;
+        place-items: center;
+        p {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          span {
+            font-family: v.$sub-font;
+            font-size: 20px;
+            font-weight: 700;
+            vertical-align: middle;
+            @include w1440 {
+              font-size: 18px;
+            }
+            @include w991 {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+    .about-img {
+      flex: 50%;
+      @include w1400 {
+        margin-bottom: 100px;
+      }
+      img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        box-shadow: 64px 64px 0px 0px #000000;
+        @include w1400 {
+          width: 90%;
+          box-shadow: 42px 42px 0px 0px #000000;
+        }
+      }
+    }
+  }
+}
+
+.support {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 100px 150px;
+  background-color: v.$gray-support;
+  @include w1400 {
+    padding-block: 100px 100px;
+  }
+  h2 {
+    margin-bottom: 42px;
+  }
+  .flex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .flex-item {
+      background-color: v.$white;
+      height: auto;
+      min-height: 150px;
+      display: flex;
+      @include w991 {
+        flex-direction: column;
+      }
+      .item-head {
+        flex: 300px;
+        display: grid;
+        place-items: center;
+        background-color: v.$base-btn-color;
+        clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+        @include w991 {
+          -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+          clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+          flex: 150px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        h3 {
+          color: v.$white;
+          font-family: v.$sub-font;
+          font-size: 32px;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-align: center;
+          @include w599 {
+            font-size: 28px;
+          }
+          span {
+            display: block;
+            font-size: 16px;
+            @include w599 {
+              font-size: 14px;
+              margin-top: 4px;
+            }
+          }
+        }
+      }
+      .item-body {
+        flex: calc(100% - 300px);
+        padding: 24px 32px;
+        p {
+          font-size: 18px;
+          line-height: 175%;
+          @include w991 {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.example {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 100px;
+  h2 {
+    margin-bottom: 42px;
+  }
+  .grid-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 60px;
+    @include w991 {
+      margin-bottom: 40px;
+    }
+    @include w768 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include w599 {
+      grid-template-columns: 1fr;
+    }
+    .grid-item {
+      position: relative;
+      img {
+        width: 100%;
+        aspect-ratio: 5/3;
+        object-fit: cover;
+      }
+      a {
+        padding: 8px 16px;
+        background-color: v.$base-btn-color;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: grid;
+        place-items: center;
+        font-family: v.$sub-font;
+        font-weight: 600;
+      }
+    }
+  }
+  .viewallarchives {
+    @include viewmore;
+  }
+}
+
+.flow {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 100px 150px;
+  background-image: url(../img/bg-dotted.png);
+  background-size: 30px;
+  @include w1400 {
+    padding-block: 100px 100px;
+  }
+  h2 {
+    margin-bottom: 88px;
+    @include w599 {
+      margin-bottom: 40px;
+    }
+  }
+  .grid-list {
+    display: grid;
+    gap: 120px 110px;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include w1400 {
+      grid-template-columns: 1fr 1fr;
+      gap: 100px 80px;
+    }
+    @include w768 {
+      grid-template-columns: 1fr;
+      gap: 40px 40px;
+    }
+    .grid-item {
+      padding-block: 50px 60px;
+      padding-inline: 14px;
+      border-top: 1px solid v.$black;
+      border-bottom: 1px solid v.$black;
+      .icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 180px;
+        margin: 0 auto 10px auto;
+      }
+      .step {
+        display: block;
+        margin-bottom: 20px;
+        font-family: v.$sub-font;
+        font-size: 27px;
+        font-weight: 600;
+        text-align: center;
+      }
+      h3 {
+        text-align: center;
+        margin-bottom: 12px;
+        font-size: 25px;
+        font-weight: 700;
+        @include w768 {
+          margin-bottom: 20px;
+        }
+      }
+      p {
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.faq {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 100px 150px;
+  @include w1400 {
+    padding-block: 100px 100px;
+  }
+  .flex-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+    .flex-item {
+      padding-block: 56px;
+      border-bottom: 1px solid v.$black;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .flexbox {
+        display: flex;
+        align-items: center;
+        @include w599 {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .faq-head {
+          flex: 100px;
+          @include w599 {
+            flex: 70px;
+          }
+          .faq-icon {
+            height: 64px;
+            width: 64px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background-color: v.$black;
+            @include w599 {
+              height: 56px;
+              width: 56px;
+            }
+            &.answer {
+              background-color: v.$base-btn-color;
+            }
+            span {
+              color: v.$white;
+              font-family: v.$sub-font;
+              font-size: 40px;
+              font-weight: 600;
+              @include w599 {
+                font-size: 32px;
+              }
+            }
+          }
+        }
+        .faq-body {
+          flex: calc(100% - 100px);
+          p {
+            font-size: 20px;
+            line-height: normal;
+            @include w1400 {
+              font-size: 18px;
+            }
+            @include w991 {
+              font-size: 16px;
+            }
+            &.question {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+  .viewmore {
+    @include viewmore;
+  }
+}
+
+.contact-bg {
+  background-image: url(../img/bg-black.png);
+  background-color: #fff;
+}
+.contact {
+  background-color: rgba($color: #fff, $alpha: 0.85);
+  color: #000000;
+  @include padding-inline;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-block: 80px;
+  h2 {
+    margin-bottom: 32px;
+  }
+  .flexbox {
+    display: flex;
+    @include w991 {
+      flex-direction: column;
+    }
+    .flex-item {
+      flex: 50%;
+      border-right: 1px solid v.$white;
+      padding-block: 24px 64px;
+      text-align: center;
+      @include w991 {
+        border-right: 0px;
+        border-bottom: 1px solid v.$white;
+        padding-block: 40px 60px;
+        &:last-of-type {
+          border-bottom: 0px;
+        }
+      }
+      &:last-child {
+        border-right: none;
+      }
+      .contact-icon {
+        margin-bottom: 48px;
+        img {
+          width: 120px;
+        }
+      }
+      .contact-tel {
+        display: inline-block;
+        text-align: center;
+        p {
+          font-family: v.$sub-font;
+          font-size: 40px;
+          font-weight: 600;
+          margin-bottom: 4px;
+          @include w599 {
+            font-size: 36px;
+          }
+        }
+        div {
+          background-color: v.$white;
+          color: v.$black;
+          height: 32px;
+          padding-inline: 28px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span {
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+      }
+      .contact-email a {
+        display: inline-grid;
+        place-items: center;
+        max-width: 480px;
+        width: auto;
+        height: 80px;
+        background-color: v.$base-btn-color;
+        position: relative;
+        padding: 10px 16px;
+        span {
+          color: v.$base-font-color;
+          font-size: 24px;
+          font-weight: 600;
+          padding-right: 46px;
+          @include w599 {
+            font-size: 20px;
+          }
+        }
+        img {
+          position: absolute;
+          top: 50%;
+          right: 28px;
+          transform: translateY(-50%) scale(1.5);
+          width: 18px;
+        }
+      }
+    }
+  }
+}

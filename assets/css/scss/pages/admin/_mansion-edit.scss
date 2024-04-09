@@ -1,0 +1,191 @@
+@use '../../mixin' as *;
+@use '../../config/variables' as v;
+
+.admin-mansions-edit {
+  @include padding-inline;
+  padding-block: 20px 150px;
+  .back-to-index {
+    margin-bottom: 16px;
+    a {
+      text-decoration: underline;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+  .mansion-stmt {
+    padding: 8px;
+    background-color: #eee;
+    margin-bottom: 32px;
+    span {
+      font-weight: 700;
+      margin-left: 1.5em;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    a {
+      color: v.$blue-link;
+      text-decoration: underline;
+    }
+  }
+  .err_msg {
+    border: 1px solid crimson;
+    color: crimson;
+    padding: 8px;
+    margin-bottom: 24px;
+    ul {
+      padding-left: 2em;
+      li {
+        list-style: initial;
+        line-height: 125%;
+        font-size: 20px;
+      }
+    }
+  }
+  .admin-mansion-form {
+    font-size: 20px;
+    display: flex;
+    gap: 32px 80px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    .field-item {
+      flex: calc(50% - 40px);
+      padding-block: 12px;
+      display: flex;
+      align-items: center;
+      .item-head {
+        flex: 200px;
+        label {
+          // line-height: 125%;
+          span {
+            background-color: crimson;
+            color: v.$white;
+            font-weight: 700;
+            display: inline-block;
+            font-size: 14px;
+            padding: 3px 5px;
+            border-radius: 4px;
+            margin-left: 0.5em;
+            line-height: initial;
+          }
+        }
+      }
+      .item-body {
+        flex: calc(100% - 200px);
+        input, textarea {
+          padding: 6px 9px;
+          width: 100%;
+          border: 1px solid v.$black;
+          &.disabled {
+            color: v.$gray;
+          }
+        }
+        textarea {
+          resize: none;
+          height: 8em;
+          line-height: 125%;
+        }
+        &.private {
+          display: flex;
+          p {
+            width: 120px;
+            display: flex;
+            align-items: center;
+            input {
+              scale: 1.5;
+              width: 40px;
+            }
+          }
+        }
+      }
+      &.w-full {
+        flex: 100%;
+      }
+      &.img {
+        .item-body  {
+          ul {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            li {
+              flex: 25%;
+              background-color: #eee;
+              padding: 12px;
+              text-align: center;
+              &:first-child {
+                border: 4px solid v.$black;
+              }
+              img {
+                width: 100%;
+                aspect-ratio: 5/4;
+                object-fit: cover;
+                margin-bottom: 12px;
+              }
+              .img-controller {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input {
+                  display: none;
+                }
+                label {
+                  padding: 4px 24px;
+                  border-radius: 8px;
+                  background-color: #333;
+                  color: v.$white;
+                }
+                button {
+                  display: block;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .flexbox {
+      flex: 100%;
+      display: flex;
+      gap: 90px;
+      .field-item {
+        flex: calc(25% - 30px);
+        .item-head {
+          flex: 100px;
+          text-align: center;
+          div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 6px;
+            font-size: 16px;
+            input {
+              margin-left: 8px;
+              scale: 1.5;
+            }
+          }
+        }
+        .item-body {
+          flex: calc(100% - 100px);
+        }
+      }
+    }
+  }
+  .admin-mansion-footer {
+    text-align: right;
+    button {
+      display: inline-grid;
+      place-items: center;
+      background-color: lightgreen;
+      width: 180px;
+      height: 56px;
+      &.create {
+        background-color: skyblue;
+      }
+      span {
+        font-size: 20px;
+        font-weight: 700;
+      } 
+    }
+  }
+}

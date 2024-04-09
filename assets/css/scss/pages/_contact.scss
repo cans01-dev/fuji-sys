@@ -1,0 +1,324 @@
+@use "../config/variables" as v;
+@use "../mixin" as *;
+
+.contactform-status {
+  text-align: center;
+  padding-block: 50px;
+  padding-left: 8%;
+  padding-right: 8%;
+  .flex-list {
+    display: inline-flex;
+    gap: 260px;
+    margin-bottom: 16px;
+    position: relative;
+    @include w991{
+      gap: 16%;
+      justify-content: center;
+    }
+    .status-icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      background-color: v.$gray;
+      margin-bottom: 8px;
+      span {
+        color: v.$white;
+        font-family: v.$sub-font;
+        font-size: 26px;
+        font-weight: 400;
+      }
+      &.active {
+        background-color: v.$black;
+      }
+    }
+    p {
+      font-size: 20px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 29.5px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: v.$black;
+    }
+  }
+  .supply p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    span {
+      color: v.$sub-font-color;
+    }
+  }
+  .err_msg {
+    border: 1px solid crimson;
+    color: crimson;
+    padding: 8px;
+    margin-top: 24px;
+    text-align: initial;
+    width: min(100%, 980px);
+    ul {
+      padding-left: 2em;
+      li {
+        list-style: initial;
+        line-height: 125%;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.contactform-form {
+  padding-inline: (calc((100% - 980px) / 2));
+  padding-bottom: 150px;
+  padding-left: 8%;
+  padding-right: 8%;
+  @include w599 {
+    padding-bottom: 80px;
+  }
+  h3 {
+    color: v.$white;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 12px 20px;
+    background-color: v.$black;
+    @include w991 {
+      font-size: 20px;
+    }
+    @include w599 {
+      font-size: 18px;
+    }
+  }
+  .field-list {
+    padding-block: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .field-item {
+      display: flex;
+      align-items: center;
+      @include w991 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      &-radio{
+        align-items: flex-start;
+      }
+      .field-head {
+        flex: 240px;
+        padding-inline: 10px 16px;
+        @include w991 {
+          flex: none;
+        }
+        label {
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 32px;
+          @include w991 {
+            font-size: 18px;
+          }
+          @include w599 {
+            font-size: 16px;
+          }
+          &.required::after {
+            content: " *";
+            color: v.$sub-font-color;
+          }
+        }
+        p {
+          line-height: 175%;
+        }
+      }
+      .field-body {
+        flex: calc(100% - 240px);
+        @include w991 {
+          width: 100%;
+        }
+        label {
+          display: flex;
+        }
+        .radio-btn{
+          align-items: center;
+          margin-bottom: 10px;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 32px;
+          @include w991 {
+            font-size: 18px;
+          }
+          @include w599 {
+            font-size: 16px;
+          }
+          input{
+            width: 60px;
+          }
+        }
+        label::before {
+          background-color: #fff;
+          border: 1px solid v.$base-btn-color;
+        }
+        input,
+        textarea,
+        select {
+          display: block;
+          width: 100%;
+          background-color: v.$gray-input;
+          font-size: 20px;
+          padding: 14px 20px;
+          resize: none; // textarea
+          @include w991 {
+            font-size: 18px;
+          }
+          @include w599 {
+            font-size: 16px;
+          }
+          &:read-only {
+            background-color: transparent;
+            border-bottom: 1px solid v.$black;
+          }
+        }
+        .select-wrapper {
+          position: relative;
+          &::before {
+            content: url(../img/arrow-down.png);
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+          }
+        }
+        .field-children {
+          display: flex;
+          gap: 20px;
+          @include w599 {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+          }
+          .child-field {
+            flex: 50%;
+            display: flex;
+            align-items: center;
+            @include w599 {
+              width: 100%;
+            }
+            .child-head {
+              flex: 50px;
+              margin-right: 8px;
+              text-align: right;
+              @include w599 {
+                flex: none;
+              }
+              label {
+                font-size: 20px;
+                @include w991 {
+                  font-size: 18px;
+                }
+                @include w599 {
+                  font-size: 16px;
+                }
+              }
+            }
+            .child-body {
+              @include w599 {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      &.textarea {
+        align-items: initial;
+      }
+    }
+  }
+  .contactform-footer {
+    text-align: center;
+    font-size: 20px;
+    @include w991 {
+      font-size: 18px;
+    }
+    @include w768 {
+      font-size: 16px;
+    }
+    > p {
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .privacy-policy {
+      margin-bottom: 24px;
+      padding-block: 0;
+      color: v.$sub-font-color;
+    }
+    .approval {
+      margin-bottom: 64px;
+      @include w599 {
+        margin-bottom: 40px;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input {
+          scale: 2;
+          margin-right: 0.5em;
+        }
+        span {
+          color: v.$sub-font-color;
+        }
+      }
+    }
+    .confirm button,
+    .submit button,
+    .submit input,
+    .back button {
+      width: 80%;
+      height: 80px;
+      background-color: v.$base-btn-color;
+      display: inline-grid;
+      place-items: center;
+      @include w599 {
+        width: 100%;
+      }
+      span {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 2.4px;
+        @include w991 {
+          font-size: 20px;
+        }
+        @include w599 {
+          font-size: 18px;
+        }
+      }
+    }
+    .back {
+      margin-bottom: 24px;
+      button {
+        background-color: v.$base-color;
+        border: 2px solid v.$black;
+      }
+    }
+  }
+}
+.contactform-thanks {
+  @include padding-inline;
+  padding-block: 60px 180px;
+  @include w599 {
+    padding-block: 60px 120px;
+  }
+  p {
+    font-size: 24px;
+    @include w991 {
+      font-size: 20px;
+    }
+    @include w599 {
+      font-size: 18px;
+    }
+  }
+}

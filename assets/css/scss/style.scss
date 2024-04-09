@@ -1,0 +1,12 @@
+@use '_reset.scss';
+@use 'config/fonts';
+@use '_base.scss';
+@use '_index.scss';
+
+@use 'pages/top';
+@use 'pages/contact';
+@use 'pages/mansion_index';
+@use 'pages/mansion_show';
+@use 'pages/privacy-policy';
+
+@use 'library/circularG';

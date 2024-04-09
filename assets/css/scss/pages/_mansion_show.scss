@@ -1,0 +1,485 @@
+@use "../config/variables" as v;
+@use "../mixin" as *;
+
+.mansion-info {
+  @include padding-inline;
+  padding-bottom: 150px;
+  padding-left: 8%;
+  padding-right: 8%;
+  @include w991 {
+    padding-bottom: 100px;
+  }
+  @include w599 {
+    padding-bottom: 80px;
+  }
+  .flexbox {
+    display: flex;
+    border: 1px solid #000;
+    margin-bottom: 50px;
+    @include w991 {
+      flex-direction: column;
+    }
+    .appraisal {
+      flex: 480px;
+      background-color: v.$orange;
+      color: v.$white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      @include w1200 {
+        width: 50%;
+      }
+      @include w991 {
+        width: 100%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        flex: 0;
+      }
+      h4 {
+        margin-bottom: 42px;
+        font-size: 24px;
+        @include w599 {
+          font-size: 20px;
+        }
+      }
+      p {
+        font-weight: 600;
+        .tubotanka {
+          font-size: 18px;
+          margin-right: 32px;
+          @include w599 {
+            font-size: 16px;
+            margin-right: 15px;
+          }
+        }
+        .number {
+          font-size: 60px;
+          font-family: v.$sub-font;
+        }
+        .unit {
+          font-size: 30px;
+        }
+      }
+    }
+    .comment {
+      flex: calc(100% - 480px);
+      padding: 64px 56px;
+      @include w1200 {
+        width: 50%;
+      }
+      @include w991 {
+        width: 100%;
+        padding: 40px 8%;
+        flex: 0;
+      }
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 175%;
+        white-space: pre-wrap;
+      }
+    }
+  }
+  .mansion-detail {
+    margin-bottom: 40px;
+    .detail-row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid v.$black;
+      @include w599 {
+        flex-direction: column;
+        border: 1px solid v.$black;
+      }
+      &:last-child {
+        border-bottom: none;
+        @include w599 {
+          border-bottom: 1px solid v.$black;
+        }
+      }
+      dt {
+        flex: 120px;
+        background-color: v.$black;
+        color: v.$white;
+        display: grid;
+        place-items: center;
+        font-weight: initial;
+        @include w599 {
+          flex: 0;
+          padding-top: 10px;
+          padding-bottom: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        span {
+          font-size: 18px;
+          @include w599 {
+            font-size: 16px;
+          }
+        }
+      }
+      dd {
+        width: calc(100% - 120px);
+        padding: 20px;
+        font-size: 16px;
+        line-height: 175%;
+        @include w599 {
+          font-size: 16px;
+          width: 100%;
+          padding: 10px 20px;
+        }
+        &.half {
+          width: calc(50% - 120px);
+          @include w991 {
+            width: calc(100% - 120px);
+            &:nth-of-type(odd) {
+              border-bottom: 1px solid v.$black;
+            }
+          }
+          @include w599{
+            width: 100%;
+          }
+        }
+        p{
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+  .mansion-gallery .grid-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    @include w991 {
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    li {
+      flex: 25%;
+      @include w991 {
+        flex: 40%;
+        margin-top: 5px;
+      }
+      img {
+        width: 100%;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        border: 1px solid v.$black;
+      }
+    }
+  }
+}
+
+.mansion-policy {
+  @include padding-inline;
+  padding-block: 88px;
+  padding-left: 8%;
+  padding-right: 8%;
+  .section-h3.policy {
+    margin-bottom: 64px;
+  }
+  .flexbox {
+    display: flex;
+    gap: 30px;
+    @include w991 {
+      flex-direction: column;
+    }
+    div {
+      flex: 50%;
+      position: relative;
+      h4 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 28px;
+        font-weight: 700;
+        @include w1400 {
+          font-size: 20px;
+        }
+        @include w1200 {
+          font-size: 18px;
+        }
+        @include w991 {
+          font-size: 24px;
+        }
+        @include w599 {
+          font-size: 18px;
+          width: 200px;
+          text-align: center;
+        }
+        @include w450 {
+          font-size: 16px;
+          width: 180px;
+          text-align: center;
+        }
+        &.our {
+          color: v.$white;
+          background-color: v.$base-btn-color;
+          padding: 8px 16px;
+        }
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.mansion-support {
+  @include padding-inline;
+  padding-block: 70px 85px;
+  padding-left: 8%;
+  padding-right: 8%;
+  background-color: v.$gray-mansion-support;
+  .flex-list {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    @include w991 {
+      flex-direction: column;
+      gap: 20px;
+    }
+    @include w599 {
+      gap: 60px;
+    }
+    .flex-item {
+      width: 360px;
+      @include w991 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      @include w599 {
+        flex-direction: column;
+      }
+      .item-head {
+        text-align: center;
+        margin-bottom: 24px;
+        > div {
+          width: 260px;
+          height: 260px;
+          border-radius: 50%;
+          display: inline-grid;
+          place-items: center;
+          background-color: v.$base-btn-color;
+          h3 {
+            color: v.$white;
+            font-family: v.$sub-font;
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            span {
+              display: block;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .item-body p {
+        font-size: 18px;
+        line-height: 175%;
+        @include w991 {
+          font-size: 16px;
+          margin-left: 6%;
+        }
+      }
+    }
+  }
+}
+
+.mansion-flow {
+  @include padding-inline;
+  padding-block: 75px 120px;
+  padding-left: 8%;
+  padding-right: 8%;
+  @include w599 {
+    padding-block: 72px 80px;
+    width: 100%;
+  }
+  .flow-wrapper {
+    display: flex;
+    justify-content: center;
+    .flex-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 900px;
+      position: relative;
+      @include w991{
+        width: 100%;
+      }
+      @include w599 {
+        gap: 60px;
+      }
+      .flex-item {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        @include w599 {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+          width: 100%;
+        }
+        .flow-icon {
+          flex: 120px;
+          width: 120px;
+          height: 120px;
+          background-color: v.$white;
+          border-radius: 50%;
+          border: 2px solid v.$black;
+          display: grid;
+          place-items: center;
+          img {
+            width: 90px;
+            height: 90px;
+          }
+        }
+        .flow-content {
+          width: calc(100% - 120px - 36px);
+          @include w599 {
+            width: 100%;
+          }
+          .flow-head {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            @include w768 {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 8px;
+            }
+            .step {
+              font-family: v.$sub-font;
+              font-size: 27px;
+              font-weight: 600;
+              @include w768 {
+                font-size: 24px;
+              }
+              @include w599 {
+                margin-left: 16px;
+              }
+            }
+            h3 {
+              font-size: 25px;
+              font-weight: 700;
+              @include w991 {
+                font-size: 20px;
+              }
+              @include w599 {
+                margin-left: 16px;
+                font-size: 18px;
+              }
+            }
+          }
+          p {
+            line-height: normal;
+            white-space: nowrap;
+            @include w1200 {
+              white-space: normal;
+            }
+            @include w599 {
+              margin-left: 16px;
+              width: 100%;
+            }
+          }
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 59px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: v.$black;
+        z-index: -1;
+        @include w991 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.mansion-around {
+  @include padding-inline;
+  padding-block: 50px 90px;
+  padding-left: 8%;
+  padding-right: 8%;
+  @include w599 {
+    padding-block: 50px 80px;
+  }
+  .around-aligncenter {
+    display: flex;
+    justify-content: center;
+    .around-wrapper {
+      @include w768 {
+        width: 100%;
+      }
+      > p {
+        font-size: 22px;
+        margin-bottom: 30px;
+        @include w991 {
+          font-size: 18px;
+        }
+        @include w768 {
+          margin-bottom: 20px;
+        }
+        @include w599 {
+          font-size: 16px;
+        }
+      }
+      .flex-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 24px;
+        @include w768 {
+          flex-direction: column;
+        }
+        .flex-item {
+          width: calc(33% - 30px);
+          padding: 10px;
+          border: 1px solid v.$black;
+          @include w768 {
+            width: 100%;
+          }
+          img {
+            width: 100%;
+            aspect-ratio: 5/3;
+            object-fit: cover;
+            margin-bottom: 8px;
+          }
+          p {
+            font-size: 18px;
+            padding-left: 10px;
+            @include w991 {
+              font-size: 18px;
+            }
+            @include w599 {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .viewmore {
+        text-align: right;
+        a {
+          font-size: 20px;
+          @include w599 {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

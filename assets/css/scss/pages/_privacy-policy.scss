@@ -1,0 +1,46 @@
+@use '../config/variables' as v;
+@use '../mixin' as *;
+
+.pp-p{
+  @include w599{
+    font-size: 16px!important;
+  }
+}
+.privacy-policy {
+  @include padding-inline;
+  padding-block: 50px 80px;
+  padding-left: 8%;
+  padding-right: 8%;
+  article {
+    margin-bottom: 20px;
+    &.top {
+      margin-bottom: 32px;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .content {
+      font-size: 18px;
+      line-height: 150%;
+      @include w599{
+        font-size: 16px;
+      }
+      ol {
+        padding-left: 1.5em;
+        counter-reset: item;
+        li {
+          position: relative;
+          &::before {
+            counter-increment: item;
+            content: counter(item)'.';
+            position: absolute;
+            left: 0;
+            transform: translateX(-1.25em);
+          }
+        }
+      }
+    }
+  }
+}

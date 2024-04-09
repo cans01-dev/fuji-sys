@@ -1,0 +1,183 @@
+@use 'config/variables' as v;
+@use 'mixin' as *;
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 90px;
+}
+body {
+  font-family: v.$base-font;
+  color: v.$base-font-color;
+  max-width: 1920px;
+  margin-inline: auto;
+  header {
+    max-width: 1920px;
+    margin-inline: auto;
+  }
+}
+img{
+  width: 100%;
+  height: auto;
+}
+.sp-br{
+  display: none;
+  @include w599{
+    display: block;
+  }
+}
+.tb-br{
+  display: none;
+  @include w768{
+    display: block;
+  }
+}
+p{
+  letter-spacing: 1.2px;
+  line-height: 1.4em;
+}
+a,button,input{
+  transition: all 0.3s;
+}
+a:hover,button:hover,input:hover{
+  opacity: 0.8;
+}
+h1 {
+  font-weight: 700;
+}
+input::placeholder {
+  color: v.$gray;
+}
+var {
+  font-style: initial;
+}
+
+.section-h2 {
+  color: v.$base-font-color;
+  font-family: v.$sub-font;
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 125%;
+  width: fit-content;
+  position: relative;
+  @include w1200{
+    font-size: 80px;
+  }
+  @include w768{
+    font-size: 60px;
+  }
+  @include w599{
+    font-size: 42px;
+  }
+  span {
+    color: v.$sub-font-color;
+  }
+  div {
+    position: absolute;
+    right: -12px;
+    bottom: 0.3em;
+    transform: translateX(100%);
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    @include w1200{
+      bottom: 0.2em;
+    }
+    @include w768{
+      gap: 26px;
+    }
+    @include w599{
+      bottom: -0.2em;
+      gap: 24px;
+    }
+    @include w450{
+      position: relative;
+      transform: translateX(0);
+    }
+    span {
+      display: block;
+      height: 78px;
+      width: 26px;
+      border-right: 1px solid v.$black;
+      transform: rotateZ(24deg);
+      @include w599{
+        height: 72px;
+        width: 20px;
+      }
+      @include w450{
+        display: none;
+      }
+      &.white {
+        border-right: 1px solid v.$white;
+      }
+    }
+    p {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+      word-break: keep-all;
+      @include w768{
+        font-size: 20px;
+      }
+      @include w599{
+        margin-bottom: 16px;
+      }
+      @include w450{
+        font-size: 14px;
+        margin-left: -8px;
+      }
+    }
+  }
+}
+
+.subpage-h2 {
+  padding-top: 160px;
+  padding-left: (calc((100% - 1360px) / 2));
+  @include w1440{
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  @include w991{
+    padding-top: 80px;
+  }
+  @include w599{
+    padding-top: 60px;
+  }
+  > div {
+    padding-bottom: 30px;
+    border-bottom: 1px solid v.$black;
+  }
+}
+
+.breadcrumb {
+  div {
+    padding-block: 50px 14px;
+    margin-left: 2%;
+    margin-right: 2%;
+    p {
+      font-size: 16px;
+      @include w599{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.section-h3 {
+  padding: 18px 20px;
+  font-size: 28px;
+  font-weight: 700;
+  border-left: 10px solid v.$black;
+  margin-bottom: 44px;
+  @include w599{
+    font-size: 20px;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+::-ms-expand {
+  display: none;
+}

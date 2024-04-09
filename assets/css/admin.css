@@ -1,0 +1,1049 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@400;600&display=swap");
+/*! destyle.css v4.0.0 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/* Reset box-model and set borders */
+/* ============================================ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+}
+
+/* Document */
+/* ============================================ */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color: transparent; /* 3*/
+}
+
+/* Sections */
+/* ============================================ */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/* Vertical rhythm */
+/* ============================================ */
+p,
+table,
+blockquote,
+address,
+pre,
+iframe,
+form,
+figure,
+dl {
+  margin: 0;
+}
+
+/* Headings */
+/* ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Lists (enumeration) */
+/* ============================================ */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Lists (definition) */
+/* ============================================ */
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+/* Grouping content */
+/* ============================================ */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+  border-top-width: 1px;
+  margin: 0;
+  clear: both;
+  color: inherit;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+address {
+  font-style: inherit;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: inherit; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Replaced content */
+/* ============================================ */
+/**
+ * Prevent vertical alignment issues.
+ */
+svg,
+img,
+embed,
+object,
+iframe {
+  vertical-align: bottom;
+}
+
+/* Forms */
+/* ============================================ */
+/**
+ * Reset form fields to make them styleable.
+ * 1. Make form elements stylable across systems iOS especially.
+ * 2. Inherit text-transform from parent.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit; /* 2 */
+}
+
+/**
+ * Correct cursors for clickable elements.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type=button]:disabled,
+[type=reset]:disabled,
+[type=submit]:disabled {
+  cursor: default;
+}
+
+/**
+ * Improve outlines for Firefox and unify style with input elements & buttons.
+ */
+:-moz-focusring {
+  outline: auto;
+}
+
+select:disabled {
+  opacity: inherit;
+}
+
+/**
+ * Remove padding
+ */
+option {
+  padding: 0;
+}
+
+/**
+ * Reset to invisible
+ */
+fieldset {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the outline style in Safari.
+ */
+[type=search] {
+  outline-offset: -2px; /* 1 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Fix font inheritance.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/**
+ * Fix appearance for Firefox
+ */
+[type=number] {
+  -moz-appearance: textfield;
+}
+
+/**
+ * Clickable labels
+ */
+label[for] {
+  cursor: pointer;
+}
+
+/* Interactive */
+/* ============================================ */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/*
+ * Remove outline for editable content.
+ */
+[contenteditable]:focus {
+  outline: auto;
+}
+
+/* Tables */
+/* ============================================ */
+/**
+1. Correct table border color inheritance in all Chrome and Safari.
+*/
+table {
+  border-color: inherit; /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+}
+
+td,
+th {
+  vertical-align: top;
+  padding: 0;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 90px;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #000;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+body header {
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.sp-br {
+  display: none;
+}
+@media screen and (max-width: 599px) {
+  .sp-br {
+    display: block;
+  }
+}
+
+.tb-br {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .tb-br {
+    display: block;
+  }
+}
+
+p {
+  letter-spacing: 1.2px;
+  line-height: 1.4em;
+}
+
+a, button, input {
+  transition: all 0.3s;
+}
+
+a:hover, button:hover, input:hover {
+  opacity: 0.8;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+input::placeholder {
+  color: #D9D9D9;
+}
+
+var {
+  font-style: initial;
+}
+
+.section-h2 {
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 96px;
+  font-weight: 600;
+  line-height: 125%;
+  width: fit-content;
+  position: relative;
+}
+@media screen and (max-width: 1200px) {
+  .section-h2 {
+    font-size: 80px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-h2 {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .section-h2 {
+    font-size: 42px;
+  }
+}
+.section-h2 span {
+  color: #FF7A00;
+}
+.section-h2 div {
+  position: absolute;
+  right: -12px;
+  bottom: 0.3em;
+  transform: translateX(100%);
+  display: flex;
+  gap: 32px;
+  align-items: flex-end;
+}
+@media screen and (max-width: 1200px) {
+  .section-h2 div {
+    bottom: 0.2em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .section-h2 div {
+    gap: 26px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .section-h2 div {
+    bottom: -0.2em;
+    gap: 24px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .section-h2 div {
+    position: relative;
+    transform: translateX(0);
+  }
+}
+.section-h2 div span {
+  display: block;
+  height: 78px;
+  width: 26px;
+  border-right: 1px solid #000;
+  transform: rotateZ(24deg);
+}
+@media screen and (max-width: 599px) {
+  .section-h2 div span {
+    height: 72px;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .section-h2 div span {
+    display: none;
+  }
+}
+.section-h2 div span.white {
+  border-right: 1px solid #fff;
+}
+.section-h2 div p {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  word-break: keep-all;
+}
+@media screen and (max-width: 768px) {
+  .section-h2 div p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .section-h2 div p {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .section-h2 div p {
+    font-size: 14px;
+    margin-left: -8px;
+  }
+}
+
+.subpage-h2 {
+  padding-top: 160px;
+  padding-left: calc((100% - 1360px) / 2);
+}
+@media screen and (max-width: 1440px) {
+  .subpage-h2 {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+}
+@media screen and (max-width: 991px) {
+  .subpage-h2 {
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .subpage-h2 {
+    padding-top: 60px;
+  }
+}
+.subpage-h2 > div {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #000;
+}
+
+.breadcrumb div {
+  padding-block: 50px 14px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.breadcrumb div p {
+  font-size: 16px;
+}
+@media screen and (max-width: 599px) {
+  .breadcrumb div p {
+    font-size: 14px;
+  }
+}
+
+.section-h3 {
+  padding: 18px 20px;
+  font-size: 28px;
+  font-weight: 700;
+  border-left: 10px solid #000;
+  margin-bottom: 44px;
+}
+@media screen and (max-width: 599px) {
+  .section-h3 {
+    font-size: 20px;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+::-ms-expand {
+  display: none;
+}
+
+.admin-mansions {
+  padding-inline: calc((100% - 1360px) / 2);
+  padding-block: 50px 80px;
+}
+.admin-mansions .search-form {
+  font-size: 22px;
+  margin-bottom: 32px;
+}
+.admin-mansions .search-form .flexbox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.admin-mansions .search-form .flexbox div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-mansions .search-form .flexbox div label {
+  display: block;
+}
+.admin-mansions .search-form .flexbox div input {
+  border: 1px solid #000;
+  padding: 6px;
+}
+.admin-mansions .search-form .flexbox div button {
+  width: 100px;
+  height: 40px;
+  background-color: #000;
+  display: grid;
+  place-items: center;
+}
+.admin-mansions .search-form .flexbox div button span {
+  color: #fff;
+  font-weight: 700px;
+}
+.admin-mansions .search-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.admin-mansions .search-option.buttom {
+  margin-bottom: 50px;
+}
+.admin-mansions .search-option p {
+  font-size: 22px;
+}
+.admin-mansions .search-option .flexbox {
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+}
+.admin-mansions .search-option .flexbox > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-mansions .search-option .flexbox > div .select-wrapper {
+  border: 1px solid #D9D9D9;
+  position: relative;
+}
+.admin-mansions .search-option .flexbox > div .select-wrapper::before {
+  content: url(../img/arrow-down.png);
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%) scale(0.7);
+}
+.admin-mansions .search-option .flexbox > div .select-wrapper select {
+  padding: 4px 32px 4px 10px;
+}
+.admin-mansions .search-results {
+  margin-bottom: 50px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item {
+  display: flex;
+  padding-block: 12px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-icon img {
+  width: 360px;
+  height: 240px;
+  object-fit: cover;
+  border: 1px solid #000;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content {
+  flex: calc(100% - 480px);
+  padding-inline: 12px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content h4 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content h4 span {
+  display: inline-block;
+  font-size: 18px;
+  background-color: #D9D9D9;
+  padding: 6px;
+  border-radius: 6px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content .item-body ul {
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  gap: 8px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content .item-body ul li {
+  margin-bottom: 8px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content .item-body ul li h5 {
+  font-weight: 700;
+  font-size: 16px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-content .item-body ul li p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons {
+  flex: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div {
+  width: 100%;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a {
+  width: 100%;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background-color: lightgreen;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a.show {
+  background-color: skyblue;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a.show.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div a span {
+  font-size: 20px;
+  font-weight: 700px;
+}
+.admin-mansions .search-results .mansion-list .mansion-item .item-buttons div .delete {
+  text-decoration: underline;
+}
+.admin-mansions .search-pagenation {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.admin-mansions .search-pagenation .flex-list {
+  display: inline-flex;
+  gap: 30px;
+}
+.admin-mansions .search-pagenation .flex-list .flex-item a {
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+}
+.admin-mansions .search-pagenation .flex-list .flex-item a img {
+  width: 10px;
+}
+.admin-mansions .search-pagenation .flex-list .flex-item a.active {
+  background-color: #D9D9D9;
+}
+.admin-mansions .search-pagenation .flex-list .flex-item a:hover {
+  background-color: #D9D9D9;
+  opacity: 0.4;
+}
+.admin-mansions .search-pagenation .flex-list .flex-item a span {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  line-height: 125%;
+}
+
+.footer-icon img {
+  max-width: 170px;
+  width: 170px;
+}
+
+.admin-mansions-edit {
+  padding-inline: calc((100% - 1360px) / 2);
+  padding-block: 20px 150px;
+}
+.admin-mansions-edit .back-to-index {
+  margin-bottom: 16px;
+}
+.admin-mansions-edit .back-to-index a {
+  text-decoration: underline;
+  font-size: 18px;
+  font-weight: 700;
+}
+.admin-mansions-edit .mansion-stmt {
+  padding: 8px;
+  background-color: #eee;
+  margin-bottom: 32px;
+}
+.admin-mansions-edit .mansion-stmt span {
+  font-weight: 700;
+  margin-left: 1.5em;
+}
+.admin-mansions-edit .mansion-stmt span:first-child {
+  margin-left: 0;
+}
+.admin-mansions-edit .mansion-stmt a {
+  color: #1558d6;
+  text-decoration: underline;
+}
+.admin-mansions-edit .err_msg {
+  border: 1px solid crimson;
+  color: crimson;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+.admin-mansions-edit .err_msg ul {
+  padding-left: 2em;
+}
+.admin-mansions-edit .err_msg ul li {
+  list-style: initial;
+  line-height: 125%;
+  font-size: 20px;
+}
+.admin-mansions-edit .admin-mansion-form {
+  font-size: 20px;
+  display: flex;
+  gap: 32px 80px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item {
+  flex: calc(50% - 40px);
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-head {
+  flex: 200px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-head label span {
+  background-color: crimson;
+  color: #fff;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 14px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  margin-left: 0.5em;
+  line-height: initial;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body {
+  flex: calc(100% - 200px);
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body input, .admin-mansions-edit .admin-mansion-form .field-item .item-body textarea {
+  padding: 6px 9px;
+  width: 100%;
+  border: 1px solid #000;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body input.disabled, .admin-mansions-edit .admin-mansion-form .field-item .item-body textarea.disabled {
+  color: #D9D9D9;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body textarea {
+  resize: none;
+  height: 8em;
+  line-height: 125%;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body.private {
+  display: flex;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body.private p {
+  width: 120px;
+  display: flex;
+  align-items: center;
+}
+.admin-mansions-edit .admin-mansion-form .field-item .item-body.private p input {
+  scale: 1.5;
+  width: 40px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.w-full {
+  flex: 100%;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li {
+  flex: 25%;
+  background-color: #eee;
+  padding: 12px;
+  text-align: center;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li:first-child {
+  border: 4px solid #000;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li img {
+  width: 100%;
+  aspect-ratio: 5/4;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller input {
+  display: none;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller label {
+  padding: 4px 24px;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+}
+.admin-mansions-edit .admin-mansion-form .field-item.img .item-body ul li .img-controller button {
+  display: block;
+  text-decoration: underline;
+}
+.admin-mansions-edit .admin-mansion-form .flexbox {
+  flex: 100%;
+  display: flex;
+  gap: 90px;
+}
+.admin-mansions-edit .admin-mansion-form .flexbox .field-item {
+  flex: calc(25% - 30px);
+}
+.admin-mansions-edit .admin-mansion-form .flexbox .field-item .item-head {
+  flex: 100px;
+  text-align: center;
+}
+.admin-mansions-edit .admin-mansion-form .flexbox .field-item .item-head div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 16px;
+}
+.admin-mansions-edit .admin-mansion-form .flexbox .field-item .item-head div input {
+  margin-left: 8px;
+  scale: 1.5;
+}
+.admin-mansions-edit .admin-mansion-form .flexbox .field-item .item-body {
+  flex: calc(100% - 100px);
+}
+.admin-mansions-edit .admin-mansion-footer {
+  text-align: right;
+}
+.admin-mansions-edit .admin-mansion-footer button {
+  display: inline-grid;
+  place-items: center;
+  background-color: lightgreen;
+  width: 180px;
+  height: 56px;
+}
+.admin-mansions-edit .admin-mansion-footer button.create {
+  background-color: skyblue;
+}
+.admin-mansions-edit .admin-mansion-footer button span {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.login {
+  padding-block: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+.login div .subpage-h2 {
+  padding-top: 0;
+  margin-bottom: 40px;
+  width: 600px;
+}
+.login div div {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+.login div div label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.login div div input[type=password] {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #000;
+}
+.login div .submit {
+  text-align: right;
+}
+.login div .submit input[type=submit] {
+  display: inline-block;
+  background-color: #FF7A00;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 20px;
+}
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  background-color: #fff;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 40px;
+  border-bottom: 1px solid #000;
+}
+header .header-nav nav ul {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  font-size: 20px;
+}
+header .header-nav nav ul li {
+  letter-spacing: 1px;
+}
+header .header-nav nav ul li.logout button {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid #000;
+  border-radius: 12px;
+}
+
+main {
+  padding-top: 90px;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 150px 280px;
+}
+footer .footer-icon {
+  margin-bottom: 64px;
+}
+footer h1 {
+  font-size: 32px;
+}

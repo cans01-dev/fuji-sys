@@ -1,0 +1,127 @@
+@use './config/variables' as v;;
+
+@mixin w1920 {
+    @media screen and (max-width: 1920px) {
+      @content;
+    }
+  }
+@mixin w1880 {
+  @media screen and (max-width: 1880px) {
+    @content;
+  }
+}
+@mixin w1440 {
+    @media screen and (max-width: 1440px) {
+      @content;
+    }
+  }
+@mixin w1400 {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+@mixin w1700 {
+  @media screen and (max-width: 1700px) {
+    @content;
+  }
+}
+@mixin w1024 {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin w1520 {
+  @media screen and (max-width: 1520px) {
+    @content;
+  }
+}
+@mixin w1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin w991 {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+@mixin w950 {
+  @media screen and (max-width: 950px) {
+    @content;
+  }
+}
+@mixin w900 {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+@mixin w768 {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin w660 {
+  @media screen and (max-width: 660px) {
+    @content;
+  }
+}
+
+@mixin w599 {
+  @media screen and (max-width: 599px) {
+    @content;
+  }
+}
+@mixin w500 {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+@mixin w450 {
+  @media screen and (max-width: 450px) {
+    @content;
+  }
+}
+@mixin w375 {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: (calc((100% - 1360px) / 2));
+}
+
+@mixin viewmore {
+  text-align: right;
+  a {
+    span {
+      font-family: v.$sub-font;
+      font-size: 24px;
+      font-weight: 600;
+      position: relative;
+      @include w1440 {
+        font-size: 18px;
+      }
+      @include w991{
+        font-size: 16px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 260px;
+        height: 1px;
+        background-color: v.$black;
+        top: 50%;
+        left: -48px;
+        transform: translate(-100%, -50%);
+        @include w991{
+          left: -32px;
+        }
+        @include w599{
+          left: -18px;
+          width: 120px;
+        }
+      }
+    }
+  }
+}

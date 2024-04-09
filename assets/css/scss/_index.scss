@@ -1,0 +1,504 @@
+@use "config/variables" as v;
+@use "mixin" as *;
+
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  height: 90px;
+  background-color: v.$base-color;
+  font-weight: 700;
+  @include w599 {
+    height: 80px;
+  }
+  @include w375 {
+    height: 60px;
+  }
+  .flexbox {
+    padding: 0 0 0 40px;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    @include w599 {
+      padding: 0 0 0 6%;
+    }
+    .flexbox-logo {
+      display: flex;
+      align-items: center;
+      @include w599 {
+        width: 80%;
+      }
+      @include w375 {
+        width: 75%;
+      }
+    }
+    .flexbox-nav {
+      display: flex;
+      gap: 64px;
+      @include w1400 {
+        gap: 30px;
+      }
+      @include w1200 {
+        display: none;
+      }
+      nav ul {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        gap: 80px;
+        @include w1440 {
+          gap: 40px;
+        }
+        @include w1400 {
+          gap: 20px;
+        }
+      }
+      .header-contact a {
+        display: grid;
+        place-items: center;
+        width: 250px;
+        height: 100%;
+        background-color: v.$base-btn-color;
+        @include w1400 {
+          width: 180px;
+        }
+      }
+    }
+  }
+}
+.toggle-button-sp {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4%;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  display: none;
+  @include w1200 {
+    display: grid;
+  }
+  p {
+    font-size: 32px;
+    letter-spacing: 2.08px;
+  }
+  .hamburger {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    span {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background-color: #000000;
+      transition: all 0.3s;
+      &:nth-child(1) {
+        top: 10px;
+      }
+      &:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:nth-child(3) {
+        bottom: 10px;
+      }
+    }
+  }
+  &.open {
+    transition: all 0.3s;
+    .hamburger {
+      span {
+        height: 3px;
+      }
+      span:nth-child(1) {
+        top: 24px;
+        transform: rotateZ(45deg);
+      }
+      span:nth-child(2) {
+        display: none;
+      }
+      span:nth-child(3) {
+        top: 24px;
+        transform: rotateZ(-45deg);
+      }
+    }
+  }
+}
+.header-menu {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 8;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(100vw, 440px);
+  height: 100vh;
+  padding-top: 120px;
+  background-color: #ff7a00;
+  color: #fff;
+  overflow-y: scroll;
+  @include w599 {
+    width: 60%;
+  }
+  @include w375 {
+    padding-top: 80px;
+  }
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  ul.menu__parent-list {
+    margin-bottom: 28px;
+    > li {
+      border-bottom: 1px solid #fff;
+      padding: 18px 4%;
+      font-size: 18px;
+      font-weight: 700;
+      position: relative;
+      &::after {
+        content: url(../image/arrow-r-w.svg);
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%) scale(1.5);
+      }
+    }
+  }
+}
+
+main {
+  padding: 90px 0 0 0;
+  @include w599 {
+    padding: 80px 0 0 0;
+  }
+  @include w375 {
+    padding: 60px 0 0 0;
+  }
+}
+
+footer {
+  background-color: v.$black;
+  color: v.$white;
+  padding: 150px 280px 20px 280px;
+  @include w1400 {
+    padding: 80px 8% 20px 8%;
+  }
+  .footer-inner {
+    .footer-icon {
+      img {
+        max-width: 170px;
+      }
+    }
+    h1 {
+      padding-block: 48px 32px;
+      font-size: 28px;
+      @include w450 {
+        font-size: 24px;
+      }
+    }
+    .flexbox {
+      display: flex;
+      justify-content: space-between;
+      @include w991 {
+        flex-direction: column;
+      }
+      .footer-info {
+        line-height: 150%;
+        @include w450 {
+          font-size: 14px;
+        }
+        p span {
+          display: block;
+        }
+      }
+      .footer-nav nav {
+        display: flex;
+        gap: 150px;
+        font-weight: 700;
+        line-height: 220%;
+        @include w991 {
+          margin-top: 40px;
+        }
+        @include w599 {
+          gap: 80px;
+        }
+        @include w450 {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+    }
+  }
+  .copyright {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 80px;
+    text-align: center;
+  }
+}
+
+.search-bg {
+  background-image: url(../img/bg-orange.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.search {
+  @include padding-inline;
+  padding-block: 90px 100px;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  @include w1440 {
+    padding: 80px 8%;
+  }
+  .search-h2 {
+    text-align: center;
+    margin: 0 0 8px 0;
+    h2 {
+      position: relative;
+      font-family: v.$sub-font;
+      font-size: 75px;
+      font-weight: 600;
+      line-height: 150%;
+      display: inline-block;
+      @include w991 {
+        font-size: 72px;
+      }
+      @include w768 {
+        font-size: 68px;
+      }
+      @include w599 {
+        font-size: 62px;
+      }
+      span {
+        font-weight: 700;
+        font-size: 18px;
+        font-family: v.$base-font;
+        word-break: keep-all;
+        line-height: initial;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include w768 {
+          font-size: 16px;
+        }
+        @include w599 {
+          font-size: 14px;
+        }
+      }
+    }
+    .search-p {
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: "Noto Sans JP", sans-serif;
+      word-break: keep-all;
+      line-height: initial;
+      margin-bottom: 20px;
+    }
+  }
+  .search-form {
+    .benner-p {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 175%;
+      margin-bottom: 44px;
+      @include w1200 {
+        font-size: 24px;
+      }
+      @include w768 {
+        font-size: 20px;
+      }
+      // @include w599{
+      //   font-size: 18px;
+      // }
+    }
+    .flexbox {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 44px 0;
+      @include w1400 {
+        flex-direction: column;
+      }
+      div {
+        height: 64px;
+        background-color: v.$white;
+        border: 2px solid #d9d9d9;
+        font-size: 26px;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        @include w768 {
+          font-size: 24px;
+        }
+        @include w599 {
+          font-size: 18px;
+        }
+        input {
+          display: block;
+          width: 100%;
+          &:focus {
+            outline: none;
+          }
+        }
+        &.address {
+          width: calc(100% * 0.6 - 14px);
+          @include w1400 {
+            width: 100%;
+            margin-top: 20px;
+          }
+          @include w768 {
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            height: 90px;
+          }
+          label {
+            word-break: keep-all;
+            font-weight: 700;
+            padding: 3px 12px 3px 0;
+            margin: 0 12px 0 0;
+            border-right: 1px solid v.$base-font-color;
+            @include w768 {
+              border-right: 0;
+              border-bottom: 1px solid v.$base-font-color;
+              width: 100%;
+              padding-bottom: 10px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+        &.freeword {
+          width: calc(100% * 0.4 - 14px);
+          @include w1400 {
+            width: 100%;
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+    .search-submit {
+      text-align: center;
+      input,
+      button {
+        display: inline-grid;
+        place-items: center;
+        max-width: 550px;
+        width: 90%;
+        height: 80px;
+        border-radius: 40px;
+        background-color: v.$black;
+        font-size: 24px;
+        font-weight: 700;
+        color: v.$white;
+        @include w599 {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.line {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 64px;
+  background-color: v.$gray-line;
+  @include w375 {
+    padding: 0 6%;
+    padding-block: 64px;
+  }
+  h2 {
+    margin-bottom: 32px;
+  }
+  .line-btn {
+    text-align: center;
+    margin-bottom: 20px;
+    @include w991 {
+      margin-top: 20px;
+    }
+    a {
+      display: inline-grid;
+      place-items: center;
+      max-width: 680px;
+      height: 96px;
+      border-radius: 10px;
+      background: v.$base-btn-color;
+      position: relative;
+      padding: 10px 120px;
+      @include w768 {
+        padding: 10px 40px;
+      }
+      @include w599 {
+        height: 80px;
+        padding: 10px 20px;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-right: 72px;
+        @include w599 {
+          padding-right: 32px;
+        }
+        img {
+          width: 46px;
+          @include w599 {
+            width: 32px;
+          }
+        }
+        span {
+          color: v.$white;
+          font-size: 24px;
+          font-weight: 700;
+          white-space: nowrap;
+          @include w599 {
+            font-size: 20px;
+          }
+        }
+      }
+      > img {
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        width: 48px;
+        @include w599 {
+          width: 24px;
+          right: 20px;
+        }
+      }
+    }
+  }
+  > p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 150%;
+    @include w1400 {
+      font-size: 18px;
+    }
+    @include w991 {
+      font-size: 16px;
+    }
+  }
+}
+
+._404 {
+  padding-block: 240px;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  .subpage-h2 {
+    padding-top: 0;
+    margin-bottom: 40px;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fuji-sys",
+  "private_key_id": "38daa355c5b9f3eeb703f333929845a836c8f059",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCZKjWmQoDefg7h\nENhK++P0aELZRf8d7IXQPpb94Zf5mOVPGVG6F79dJaE/Ut9aChAvU+B6fDesMiTr\nnaUEirUzYvbEXi9ppNO0YzjJyTZXZgizf6jFi11EQqkRziBXwhZm6HIBtMFBijm9\nbdsQIKFjyTQEgXBVcjESCuN5GI7d1w4BJMGz889y65uVJ6EGV3HFNhxtmA7dl2VB\nBA8LVn/7IHdU/729Vj8eXR/HLHDMozUiXeL98JVyA/Xjw3AMHgHsCtxCpizDNyhb\nuRAJ2iz2Kn3xpKPxQbjfZVDuQ1ewSLLCsuZC/XgERLJJyBtppQaBIa1A7U57l9YO\nrLq6+gxXAgMBAAECggEAAtc5EoHWQQomfX8h+9YLJsvOPZhiQGxUGQYoJ8JI3sy6\nqAporSJmnrQldvazBMj9/tq35Z2rLKrra2FLn7dw3+icegzjJTr04Doc4gU02E8g\npy+dcjiA/NSdrSJdEDOd1b/G6YgwM2Z8ZqqEbxqj06V2LQU3j6YkCdkg2eyeLbgZ\nhQA+L4xMvWKg0v0PwX1vT8ieyKioyVfD+sBZCa7Ad1DWXtc29a/0qqnbYB2k7v+N\nkI6rX80erXYeSIihuBiZ/hvHYbWXgeE9UXlAaO5MPQGTYjmC5FqwTXM2dy1MRVxK\ntHLLoe4DLl9w6Fd4Sn5Q4OZLkmGmNXninQARAs0ZPQKBgQDOIhRsAdE5WX+iQZMi\nL+7uzTtpC/dRTjrwqrV0N1LwrcdBeftg/r+I7T1ANZ1GRjbu/YUYwUAYtCA8a+M3\nMlCCOTUfwktL/k3VgMAeatjoVaeNyDrbHRBhvStdpp7pCnR+ylxkabrVXTBq8+sm\n5EHP6nRG/8R/BXNfDLo2J4K4lQKBgQC+N8gpFwWRAXCQNL/Ui8+l/V1A2r4G9Ulu\nr7jnRjXdbOBid8zoZsfrqZcSb/ZbJYs4iUKIN1HtMSNHLcINGcLzEfmK54+XRXBI\n6WJ8RXNieFLWFnrsxEZDaYP/n7pzxkAF5oqC9amaCqxjLpwO9fAI8gv4fO1LEJtx\nPWhaezj6OwKBgCTk8KbMRHhxTmjqN718utU/Io0QuTlyORZuV3/vjwbI88sCXD3m\nGr4VSEs/zWCQnLB16+acYC6LvuFRph9w//vu5VVD31pAsAmwu7I2CZC8E/tKhU5G\ni3IS+7oNYo/vcR5oddT7H5ek0E+0TLhvTmA6ZIl4qeDaRuYSTxn2RG1pAoGAXZeo\nvr77GCvzLKEnufbIxs1xMtXuJhJOfU2s1u6u1jIZ/Zkgk0DvIT8ifAnm11YTuE+h\nEtDVWLWSvBUBo9yHFX5EoFnrRuz9oIJk2Ox7J3o4l+obtZ+lSsoCDqaS4SAspDqY\n8HLbblXOGEb4tkvAPUaLKUqenw6ezQr/63Uxxb0CgYBWTxOqfkNAZhGwbyW2bdv/\nFuihFZ1B8g6tpEWxK+hheHhFwSYcuaYvwWvYMlXvFfHHR2FjYksthRzIYvl11tUZ\nxJFCCfSV+ppKTD8VWQhmVakjbHPh2SuHCJQ5qMmI9b7Hsob69ZXVifLk3/3Re/co\nbMCKhG1sa20sJ2SBnt+/4w==\n-----END PRIVATE KEY-----\n",
+  "client_email": "fuji-sys@fuji-sys.iam.gserviceaccount.com",
+  "client_id": "108616676099053655946",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fuji-sys%40fuji-sys.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
