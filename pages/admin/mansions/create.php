@@ -10,7 +10,7 @@
   </div>
   <div class="admin-mansions-edit">
     <div class="back-to-index">
-      <a href="<?php echo url("/admin/mansions") ?>">← マンション一覧に戻る</a>
+      <a href="<?= url("/admin/mansions") ?>">← マンション一覧に戻る</a>
     </div>
     <div class="mansion-stmt">
       <p>

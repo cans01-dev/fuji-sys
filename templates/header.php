@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo getPageTitle(); ?>｜名古屋市中村区専門の分譲マンション査定サイト</title>
+  <title><?= getPageTitle(); ?>｜名古屋市中村区専門の分譲マンション査定サイト</title>
   <meta name="description" content="名古屋市中村区の分譲マンションを簡易査定します。中村区にエリアを絞っているからこそ、詳細な査定が可能です。専門性の向上や進捗管理のしやすさから、お客様一人ひとりに寄り添ったご案内をさせていただきます。">
   <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
@@ -45,6 +45,7 @@
           <ul>
             <li><a href="/mansions">マンション検索</a></li>
             <li><a href="/mansions">マンション一覧</a></li>
+            <li><a href="/posts">NEWS</a></li>
             <li><a href="/#flow">売却の流れ</a></li>
             <li><a href="/#faq">よくある質問</a></li>
           </ul>

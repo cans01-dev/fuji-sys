@@ -29,10 +29,16 @@ function get_page_numbers($posts_par_page, $posts_sum, $page) {
   ];
 }
 
-function to_class_object($result) {
+function to_mansion_object($result) {
   $mansion =  new Mansion();
   $mansion->setAll($result);
   return $mansion;
+}
+
+function to_post_object($result) {
+  $post =  new post();
+  $post->setAll($result);
+  return $post;
 }
 
 function url($path = '') {

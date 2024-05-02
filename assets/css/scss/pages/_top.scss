@@ -150,6 +150,40 @@
   }
 }
 
+.news {
+  @include padding-inline;
+  padding: 0 8%;
+  padding-block: 100px 50px;
+  background-color: v.$gray-support;
+  @include w1400 {
+    padding-block: 100px 25px;
+  }
+  h2 {
+    margin-bottom: 42px;
+  }
+  .flex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .flex-item {
+      padding: 16px;
+      border-block: 1px solid v.$base-font-color;
+      .item-head {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .item-body {
+        line-height: 2.25rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
 .about {
   // padding-left: (calc((100% - 1360px) / 2));
   padding: 0 8%;

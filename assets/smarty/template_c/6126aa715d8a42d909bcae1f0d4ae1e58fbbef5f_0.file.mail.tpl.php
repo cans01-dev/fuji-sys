@@ -24,28 +24,28 @@ function content_658a8f8c2d7353_59395433 (Smarty_Internal_Template $_smarty_tpl)
 ?>ホームページのお問い合わせページから
 
 【お客様情報】
-名前: <?php echo $_smarty_tpl->tpl_vars['first_name']->value;?>
- <?php echo $_smarty_tpl->tpl_vars['last_name']->value;?>
+名前: <?= $_smarty_tpl->tpl_vars['first_name']->value;?>
+ <?= $_smarty_tpl->tpl_vars['last_name']->value;?>
 
-名前(ひらがな): <?php echo $_smarty_tpl->tpl_vars['first_name_gana']->value;?>
- <?php echo $_smarty_tpl->tpl_vars['last_name_gana']->value;?>
+名前(ひらがな): <?= $_smarty_tpl->tpl_vars['first_name_gana']->value;?>
+ <?= $_smarty_tpl->tpl_vars['last_name_gana']->value;?>
  
-電話番号: <?php echo $_smarty_tpl->tpl_vars['tel']->value;?>
+電話番号: <?= $_smarty_tpl->tpl_vars['tel']->value;?>
 
-メールアドレス: <?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+メールアドレス: <?= $_smarty_tpl->tpl_vars['email']->value;?>
 
 
 【物件情報】
-マンション名・棟: <?php echo $_smarty_tpl->tpl_vars['manshion_name_bldg']->value;?>
+マンション名・棟: <?= $_smarty_tpl->tpl_vars['manshion_name_bldg']->value;?>
 
-部屋番号: <?php echo $_smarty_tpl->tpl_vars['room_number']->value;?>
+部屋番号: <?= $_smarty_tpl->tpl_vars['room_number']->value;?>
 
-物件所在地: <?php echo $_smarty_tpl->tpl_vars['address']->value;?>
+物件所在地: <?= $_smarty_tpl->tpl_vars['address']->value;?>
 
 
 【お問い合わせ内容】
-お問い合わせ内容: <?php echo $_smarty_tpl->tpl_vars['contact_content']->value;?>
+お問い合わせ内容: <?= $_smarty_tpl->tpl_vars['contact_content']->value;?>
 
-備考: <?php echo $_smarty_tpl->tpl_vars['note']->value;
+備考: <?= $_smarty_tpl->tpl_vars['note']->value;
 }
 }

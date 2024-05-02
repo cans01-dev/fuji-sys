@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Carbon\Carbon;
 use Ramsey\Uuid\Nonstandard\Uuid;
@@ -23,7 +23,7 @@ function admin_mansions_index() {
   $mansions = $MyPDO->getMansions($address, $freeword, $order, $limit, $offset, includePrivete: true);
   $pgnt_stmt = "{$mansions_count}件中{$pgnt["current_start"]}～{$pgnt["current_end"]}件を表示";
 
-  require_once 'pages/admin/mansion_index.php';
+  require_once 'pages/admin/mansions/index.php';
 }
 
 function admin_mansions_create() {
@@ -36,7 +36,7 @@ function admin_mansions_create() {
   $mansion->birthday_set = 0;
   $mansion->private = 0;
   
-  require_once 'pages/admin/mansion_create.php';
+  require_once 'pages/admin/mansions/create.php';
 }
 
 function admin_mansions_store() {
@@ -96,7 +96,7 @@ function admin_mansions_edit($vars) {
     return;
   }
 
-  require_once 'pages/admin/mansion_edit.php';
+  require_once 'pages/admin/mansions/edit.php';
 }
 
 function admin_mansions_update($vars) {
@@ -163,38 +163,3 @@ function admin_mansions_delete($vars) {
   header("Location: $url");
   exit;
 }
-
-function admin_login_get() {
-  global $toast_msg;
-
-  require_once './login.php';
-}
-
-function admin_login_post() {
-  $password = $_POST["password"];
-  if (password_verify($password, ADMIN_PASSWORD)) {
-    $_SESSION["admin"] = "admin";
-    toastMeg("success", "管理画面にログインしました");
-    $url = url("/admin/mansions");
-    header("Location: $url");
-    exit;
-  } else {
-    toastMeg("error", "パスワードが違います");
-    $url = url("/admin/login");
-    header("Location: $url");
-    exit;
-  }
-}
-
-function admin_logout() {
-  $_SESSION = array();
-  session_destroy();
-
-  session_start();
-  toastMeg("success", "管理画面からログアウトしました");
-  $url = url("/admin/login");
-  header("Location: $url");
-  exit;
-}
-
-?>

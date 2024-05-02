@@ -16,22 +16,24 @@
   <script>
     toastr.options.positionClass = 'toast-bottom-right';
     toastr
-    ['<?php echo $toast_msg["type"] ?>']
-    ('<?php echo $toast_msg["msg"] ?>');
+    ['<?= $toast_msg["type"] ?>']
+    ('<?= $toast_msg["msg"] ?>');
   </script>
 <?php endif; ?>
 <header>
   <div class="header-logo">
-    <a href="<?php echo url("/admin/mansions") ?>">
+    <a href="<?= url("/admin/mansions") ?>">
       <img src="/assets/img/logo.png" alt="">
     </a>
   </div>
   <div class="header-nav">
     <nav>
       <ul>
-        <li><a href="<?php echo url("/") ?>" target="_blank">公開ページ</a></li>
-        <li><a href="<?php echo url("/admin/mansions") ?>">マンション一覧</a></li>
-        <li><a href="<?php echo url("/admin/mansions/create") ?>">マンション新規登録</a></li>
+        <li><a href="<?= url("/") ?>" target="_blank">公開ページ</a></li>
+        <li><a href="<?= url("/admin/mansions") ?>">マンション一覧</a></li>
+        <li><a href="<?= url("/admin/mansions/create") ?>">マンション新規登録</a></li>
+        <li><a href="<?= url("/admin/posts") ?>">投稿一覧</a></li>
+        <li><a href="<?= url("/admin/posts/create") ?>">投稿新規作成</a></li>
         <?php if (isset($_SESSION["admin"])): ?>
         <li class="logout">
           <form action="/admin/logout" method="post">

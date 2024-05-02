@@ -1,114 +1,25 @@
 <?php require 'templates/header.php'; ?>
 <main>
-  <div class="subpage-h2">
-    <div>
-      <h2 class="section-h2"><span>I</span>nformation
-        <div><span></span>
-          <p>マンション情報</p>
-        </div>
-      </h2>
-    </div>
-  </div>
-  <div class="breadcrumb">
+  <div class="breadcrumb" style="max-width: 1140px; margin-inline: auto;">
     <div>
       <p>
-        <a href="<?php echo url("./") ?>">TOP</a> 〉
-        <a href="<?php echo url("./mansions") ?>">マンション検索</a> 〉
-        <a href="<?php echo url("./mansions") ?>">マンション情報一覧</a> 〉
-        <a href="<?php echo url("./mansions/{$mansion->id}") ?>"><?php echo $mansion->title ?></a>
+        <a href="/">TOP</a> 〉
+        <a href="/posts">NEWS</a> 〉
+        <a href="/posts/<?= $post->id ?>"><?= $post->title ?></a>
       </p>
     </div>
   </div>
-  <section class="mansion-info">
-    <h3 class="section-h3"><?php echo $mansion->title ?></h3>
+  <section class="mansion-info" style="max-width: 1140px; margin-inline: auto;">
+    <h3 class="section-h3"><?= $post->title ?></h3>
     <div class="flexbox">
-      <div class="appraisal">
-        <div>
-          <h4>概算査定金額</h4>
-          <p>
-            <span class="tubotanka">坪単価</span>
-            <span class="number"><?php echo $mansion->unit_price ?></span>
-            <span class="unit">万円</span>
-          </p>
-        </div>
-      </div>
-      <div class="comment">
-        <h4>担当者コメント</h4>
-        <p><?php echo $mansion->get("comment", "ーーー") ?></p>
-      </div>
+      <img src="<?= $post->getImageUrl("image") ?>" alt="" style="aspect-ratio: 16/9; object-fit: cover;">
     </div>
     <div class="mansion-detail">
-      <dl>
-        <div class="detail-row">
-          <dt><span>所在地</span></dt>
-          <dd><?php echo $mansion->address ?></dd>
-        </div>
-        <div class="detail-row">
-          <dt><span>交通</span></dt>
-          <dd><?php echo $mansion->access ?></dd>
-        </div>
-        <div class="detail-row">
-          <dt><span>総戸数</span></dt>
-          <dd class="half"><?php echo $mansion->get("total_units", "ーーー", "戸") ?></dd>
-          <dt><span>築年数</span></dt>
-          <dd class="half">
-            <?php if ($mansion->birthday_set) : ?>
-              <?php echo str_replace('前', '', $mansion->birthday->diffForHumans()); ?>
-              （<?php echo $mansion->birthday->format('Y年n月') ?>）
-            <?php else : ?>
-              ーーー
-            <?php endif; ?>
-          </dd>
-        </div>
-        <div class="detail-row">
-          <dt><span>階数</span></dt>
-          <dd class="half"><?php echo $mansion->get("floors", "ーーー") ?></dd>
-          <dt><span>建築構造</span></dt>
-          <dd class="half"><?php echo $mansion->get("architecture", "ーーー") ?></dd>
-        </div>
-        <div class="detail-row">
-          <dt><span>備考</span></dt>
-          <dd><p><?php echo $mansion->get("note", "ーーー") ?></p></dd>
-        </div>
-      </dl>
-    </div>
-    <div class="mansion-gallery">
-      <ul class="grid-list">
-        <?php
-        if ( strpos( $mansion->getImageUrl("image1"), 'no-image.png' ) === false ){
-          echo '<li class="grid-item">';
-          echo '<a href="' . $mansion->getImageUrl("image1") . '">';
-          echo  '<img src="' . $mansion->getImageUrl("image1") . '" alt="">';
-          echo '</a>';
-          echo '</li>';
-        }
-        if ( strpos( $mansion->getImageUrl("image2"), 'no-image.png' ) === false ){
-          echo '<li class="grid-item">';
-          echo '<a href="' . $mansion->getImageUrl("image2") . '">';
-          echo  '<img src="' . $mansion->getImageUrl("image2") . '" alt="">';
-          echo '</a>';
-          echo '</li>';
-        }
-        if ( strpos( $mansion->getImageUrl("image3"), 'no-image.png' ) === false ){
-          echo '<li class="grid-item">';
-          echo '<a href="' . $mansion->getImageUrl("image3") . '">';
-          echo  '<img src="' . $mansion->getImageUrl("image3") . '" alt="">';
-          echo '</a>';
-          echo '</li>';
-        }
-        if ( strpos( $mansion->getImageUrl("image4"), 'no-image.png' ) === false ){
-          echo '<li class="grid-item">';
-          echo '<a href="' . $mansion->getImageUrl("image4") . '">';
-          echo  '<img src="' . $mansion->getImageUrl("image4") . '" alt="">';
-          echo '</a>';
-          echo '</li>';
-        }
-        ?>
-      </ul>
+      <p class="post-content">
+        <?= $post->text ?>
+      </p>
     </div>
   </section>
-
-  <?php require 'templates/banner.php'; ?>
 
   <section class="mansion-policy">
     <h3 class="section-h3 policy">弊社の売却価格に関する考え方</h3>
@@ -242,11 +153,11 @@
       <div class="around-wrapper">
         <p>中村区の他のマンションから探す</p>
         <ul class="flex-list">
-          <?php foreach ($mansions as $mansion) : ?>
+          <?php foreach ($posts as $post) : ?>
             <li class="flex-item">
-            <a href="./<?php echo $mansion->id ?>">
-              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
-              <p><?php echo $mansion->title ?></p>
+            <a href="./<?= $post->id ?>">
+              <img src="<?= $post->getImageUrl("image1") ?>" alt="">
+              <p><?= $post->title ?></p>
           </a>
             </li>
           <?php endforeach; ?>

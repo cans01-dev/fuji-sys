@@ -3,10 +3,10 @@
     <div class="flexbox">
       <div class="address">
         <label for="">名古屋市中村区</label>
-        <input type="text" name="address" placeholder="以降の住所" value="<?php echo $_GET["address"] ?? "" ?>">
+        <input type="text" name="address" placeholder="以降の住所" value="<?= $_GET["address"] ?? "" ?>">
       </div>
       <div class="freeword">
-        <input type="text" name="freeword" placeholder="マンション名" value="<?php echo $_GET["freeword"] ?? "" ?>">
+        <input type="text" name="freeword" placeholder="マンション名" value="<?= $_GET["freeword"] ?? "" ?>">
       </div>
     </div>
     <div class="search-submit">

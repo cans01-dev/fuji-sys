@@ -23,6 +23,31 @@
 
   <?php require 'templates/search.php'; ?>
 
+  <section class="news">
+    <h2 class="section-h2"><span>N</span>ews
+      <div><span></span><p>お知らせ</p></div>
+    </h2>
+    <ul class="flex-list">
+      <?php foreach ($posts as $post): ?>
+      <li class="flex-item">
+        <a href="/posts/<?= $post->id ?>">
+          <div class="item-head">
+            <h3>
+              <?= $post->title ?>
+              <span style="font-size: 0.875rem; margin-left: 0.25rem;">
+                <?= $post->published_at->diffForHumans() ?>
+              </span>
+            </h3>
+          </div>
+          <div class="item-body">
+            <p><?= $post->text ?></p>
+          </div>
+        </a>
+      </li>
+      <?php endforeach; ?>
+    </ul>
+  </section>
+
   <section id="about" class="about">
     <div class="about-icon">
       <img src="../assets/img/icon.png" alt="">
@@ -81,13 +106,13 @@
     <ul class="grid-list">
       <?php foreach ($mansions as $mansion): ?>
         <li class="grid-item">
-          <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
-          <a href="<?php echo url("/mansions/{$mansion->id}") ?>">More</a>
+          <img src="<?= $mansion->getImageUrl("image1") ?>" alt="">
+          <a href="<?= url("/mansions/{$mansion->id}") ?>">More</a>
         </li>
       <?php endforeach; ?>
     </ul>
     <div class="viewallarchives">
-      <a href="<?php echo url("/mansions") ?>"><span>View All Archives</span></a>
+      <a href="<?= url("/mansions") ?>"><span>View All Archives</span></a>
     </div>
   </section>
 

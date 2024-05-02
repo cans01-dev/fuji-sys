@@ -25,9 +25,9 @@
   </div>
 
   <div class="search-result">
-    <h3><?php echo $address ?? $freeword ?? '中村区' ?> の検索結果一覧</h3>
+    <h3><?= $address ?? $freeword ?? '中村区' ?> の検索結果一覧</h3>
     <div class="search-option">
-      <p class=""><?php echo $pgnt_stmt ?></p>
+      <p class=""><?= $pgnt_stmt ?></p>
       <div class="flexbox">
         <div>
           <label for="">表示件数</label>
@@ -55,10 +55,10 @@
       <ul class="grid-list">
         <?php foreach ($mansions as $mansion): ?>
           <li class="grid-item">
-            <a href="./mansions/<?php echo $mansion->id ?>">
-              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
+            <a href="./mansions/<?= $mansion->id ?>">
+              <img src="<?= $mansion->getImageUrl("image1") ?>" alt="">
               <div>
-                <p><?php echo $mansion->title ?></p>
+                <p><?= $mansion->title ?></p>
               </div>
             </a>
           </li>
@@ -66,41 +66,41 @@
       </ul>
     </div>
     <div class="search-option buttom">
-      <p class=""><?php echo $pgnt_stmt ?></p>
+      <p class=""><?= $pgnt_stmt ?></p>
     </div>
     <div class="search-pagenation">
       <ul class="flex-list">
         <?php if ($pgnt["first"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["first"]]); ?>">
+            <a href="<?= url_param_change(['page' => $pgnt["first"]]); ?>">
               <img src="../assets/img/arrow-left.png" alt="">
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["prev"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["prev"]]); ?>">
-              <span><?php echo $pgnt["prev"] ?></span>
+            <a href="<?= url_param_change(['page' => $pgnt["prev"]]); ?>">
+              <span><?= $pgnt["prev"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["current"]): ?>
           <li class="flex-item">
-            <a class="active" href="<?php echo url_param_change(['page' => $pgnt["current"]]); ?>">
-              <span><?php echo $pgnt["current"] ?></span>
+            <a class="active" href="<?= url_param_change(['page' => $pgnt["current"]]); ?>">
+              <span><?= $pgnt["current"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["next"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["next"]]); ?>">
-              <span><?php echo $pgnt["next"] ?></span>
+            <a href="<?= url_param_change(['page' => $pgnt["next"]]); ?>">
+              <span><?= $pgnt["next"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["last"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["last"]]); ?>">
+            <a href="<?= url_param_change(['page' => $pgnt["last"]]); ?>">
               <img src="../assets/img/arrow-right.png" alt="">
             </a>
           </li>

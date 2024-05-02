@@ -1,7 +1,5 @@
 <?php 
 
-require __DIR__.'/mansion.php';
-
 class MyPDO extends PDO
 {
   function getMansions($address, $freeword, $order="", $limit=0, $offset=0, $count=false, $includePrivete=false) {
@@ -30,7 +28,7 @@ class MyPDO extends PDO
       return self::query($sql)->fetchColumn();
     } else {
       $sql = "SELECT * FROM mansions $where_sql $order_sql LIMIT $limit OFFSET $offset";
-      $mansions = array_map('to_class_object', self::query($sql)->fetchAll());
+      $mansions = array_map('to_mansion_object', self::query($sql)->fetchAll());
       return $mansions; // to_class_object()->functions.php
     }
   }
@@ -42,6 +40,31 @@ class MyPDO extends PDO
       $mansion = new Mansion();
       $mansion->setAll($result);
       return $mansion;
+    } else {
+      return false;
+    }
+  }
+
+  function getPosts($includePrivete=false, $limit=-1) {    
+    $private = $includePrivete ? "(0, 1)" : "(0)";
+
+    $where_sql = "WHERE private IN $private";
+
+    $limit_sql = $limit > -1 ? "LIMIT {$limit}" : "";
+    
+    $sql = "SELECT * FROM posts $where_sql $limit_sql";
+    $posts = array_map('to_post_object', self::query($sql)->fetchAll());
+
+    return $posts; // to_class_object()->functions.php
+  }
+
+  function getpostById($id, $includePrivete=false) {
+    $private = $includePrivete ? "(0, 1)" : "(0)";
+    $sql = "SELECT * FROM posts WHERE id = $id AND private IN $private";
+    if ($result = self::query($sql)->fetch()) {
+      $post = new post();
+      $post->setAll($result);
+      return $post;
     } else {
       return false;
     }

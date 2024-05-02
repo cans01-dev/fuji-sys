@@ -14,10 +14,10 @@
         <div class="flexbox">
           <div class="address">
             <label for="">名古屋市中村区</label>
-            <input type="text" name="address" placeholder="以降の住所" value="<?php echo $_GET["address"] ?? "" ?>">
+            <input type="text" name="address" placeholder="以降の住所" value="<?= $_GET["address"] ?? "" ?>">
           </div>
           <div class="freeword">
-            <input type="text" name="freeword" placeholder="フリーワード" value="<?php echo $_GET["freeword"] ?? "" ?>">
+            <input type="text" name="freeword" placeholder="フリーワード" value="<?= $_GET["freeword"] ?? "" ?>">
           </div>
           <div class="search-submit">
             <button type="submit" id="searchFormSubmit"><span>検索</span></button>
@@ -26,7 +26,7 @@
       </form>
     </div>
     <div class="search-option">
-      <p class=""><?php echo $pgnt_stmt ?></p>
+      <p class=""><?= $pgnt_stmt ?></p>
       <div class="flexbox">
         <div>
           <label for="">表示件数</label>
@@ -55,11 +55,11 @@
         <?php foreach ($mansions as $mansion): ?>
           <li class="mansion-item">
             <div class="item-icon">
-              <img src="<?php echo $mansion->getImageUrl("image1") ?>" alt="">
+              <img src="<?= $mansion->getImageUrl("image1") ?>" alt="">
             </div>
             <div class="item-content">
               <h4>
-                <?php echo $mansion->title ?>
+                <?= $mansion->title ?>
                 <?php if ($mansion->private): ?>
                   <span>非公開</span>
                 <?php endif; ?>
@@ -68,26 +68,26 @@
                 <ul>
                   <li>
                     <h5>査定金額</h5>
-                    <p><?php echo $mansion->unit_price."万/坪" ?></p>
+                    <p><?= $mansion->unit_price."万/坪" ?></p>
                   </li>
                   <li>
                     <h5>所在地</h5>
-                    <p><?php echo $mansion->address ?></p>
+                    <p><?= $mansion->address ?></p>
                   </li>
                   <li>
                     <h5>交通</h5>
-                    <p><?php echo $mansion->access ?></p>
+                    <p><?= $mansion->access ?></p>
                   </li>
                   <li>
                     <h5>総戸数</h5>
-                    <p><?php echo $mansion->get("total_units", "ーーー", "戸") ?></p>
+                    <p><?= $mansion->get("total_units", "ーーー", "戸") ?></p>
                   </li>
                   <li>
                     <h5>築年数</h5>
                     <p>
                     <?php if ($mansion->birthday_set): ?>
-                      <?php echo str_replace('前', '', $mansion->birthday->diffForHumans()); ?>
-                      （<?php echo $mansion->birthday->format('Y年n月') ?>）
+                      <?= str_replace('前', '', $mansion->birthday->diffForHumans()); ?>
+                      （<?= $mansion->birthday->format('Y年n月') ?>）
                     <?php else: ?>
                       ーーー
                     <?php endif; ?>
@@ -95,26 +95,26 @@
                   </li>
                   <li>
                     <h5>階数</h5>
-                    <p><?php echo $mansion->get("floors", "ーーー") ?></p>
+                    <p><?= $mansion->get("floors", "ーーー") ?></p>
                   </li>
                   <li>
                     <h5>建築構造</h5>
-                    <p><?php echo $mansion->get("architecture", "ーーー") ?></p>
+                    <p><?= $mansion->get("architecture", "ーーー") ?></p>
                   </li>
                 </ul>
               </div>
             </div>
             <div class="item-buttons">
               <div>
-                <a class="edit" href="./mansions/<?php echo $mansion->id ?>/edit"><span>編集</span></a>
+                <a class="edit" href="/admin/mansions/<?= $mansion->id ?>/edit"><span>編集</span></a>
               </div>
               <div>
-                <a class="show <?php if ($mansion->private) echo "disabled"; ?>" href="../mansions/<?php echo $mansion->id ?>" target="_blank">
+                <a class="show <?php if ($mansion->private) echo "disabled"; ?>" href="/mansions/<?= $mansion->id ?>" target="_blank">
                   <span>公開ページ</span>
                 </a>
               </div>
               <div>
-                <form action="/mansions/<?php echo $mansion->id ?>" method="post" onsubmit="return window.confirm('本当に削除しますか？');">
+                <form action="/admin/mansions/<?= $mansion->id ?>" method="post" onsubmit="return window.confirm('本当に削除しますか？');">
                   <input type="hidden" name="_method" value="DELETE">
                   <input class="delete" type="submit" value="削除">
                 </form>
@@ -128,35 +128,35 @@
       <ul class="flex-list">
         <?php if ($pgnt["first"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["first"]]); ?>">
+            <a href="<?= url_param_change(['page' => $pgnt["first"]]); ?>">
               <img src="../assets/img/arrow-left.png" alt="">
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["prev"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["prev"]]); ?>">
-              <span><?php echo $pgnt["prev"] ?></span>
+            <a href="<?= url_param_change(['page' => $pgnt["prev"]]); ?>">
+              <span><?= $pgnt["prev"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["current"]): ?>
           <li class="flex-item">
-            <a class="active" href="<?php echo url_param_change(['page' => $pgnt["current"]]); ?>">
-              <span><?php echo $pgnt["current"] ?></span>
+            <a class="active" href="<?= url_param_change(['page' => $pgnt["current"]]); ?>">
+              <span><?= $pgnt["current"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["next"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["next"]]); ?>">
-              <span><?php echo $pgnt["next"] ?></span>
+            <a href="<?= url_param_change(['page' => $pgnt["next"]]); ?>">
+              <span><?= $pgnt["next"] ?></span>
             </a>
           </li>
         <?php endif; ?>
         <?php if ($pgnt["last"]): ?>
           <li class="flex-item">
-            <a href="<?php echo url_param_change(['page' => $pgnt["last"]]); ?>">
+            <a href="<?= url_param_change(['page' => $pgnt["last"]]); ?>">
               <img src="../assets/img/arrow-right.png" alt="">
             </a>
           </li>
