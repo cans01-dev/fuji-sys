@@ -15,7 +15,7 @@
       <img src="<?= $post->getImageUrl("image") ?>" alt="" style="aspect-ratio: 16/9; object-fit: cover;">
     </div>
     <div class="mansion-detail">
-      <p class="post-content">
+      <p class="post-content" style="white-space: pre-wrap;">
         <?= $post->text ?>
       </p>
     </div>
